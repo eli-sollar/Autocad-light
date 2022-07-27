@@ -1,0 +1,48 @@
+{
+    "Table": [
+      {
+        "Id": 1,
+        "Key": 42,
+        "Value": "42",
+        "I18nId": null,
+        "CssClass": null,
+        "CreateAt": null,
+        "CreateBy": null,
+        "ImageName": null,
+        "IsActive": true
+      },
+      {
+        "Id": 2,
+        "Key": 50,
+        "Value": "50",
+        "I18nId": null,
+        "CssClass": null,
+        "CreateAt": null,
+        "CreateBy": null,
+        "ImageName": null,
+        "IsActive": true
+      },
+      {
+        "Id": 3,
+        "Key": 65,
+        "Value": "65",
+        "I18nId": null,
+        "CssClass": null,
+        "CreateAt": null,
+        "CreateBy": null,
+        "ImageName": null,
+        "IsActive": true
+      },
+      {
+        "Id": 4,
+        "Key": 100,
+        "Value": "100",
+        "I18nId": null,
+        "CssClass": null,
+        "CreateAt": null,
+        "CreateBy": null,
+        "ImageName": null,
+        "IsActive": true
+      }
+    ]
+  }

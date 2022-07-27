@@ -1,0 +1,26 @@
+Form.Select {
+  border: none;
+}
+th {
+  color: #a1a5c0;
+}
+td {
+  color: #191919;
+}
+.btn-next {
+  width: 200px;
+  height: 50px;
+  background: #ff8603;
+  color: #ffff;
+  font-size: "2px";
+  border: 2px solid #ff8603;
+  border-radius: 6px;
+  font-weight: bolder;
+  font-weight: 800;
+  font-family: "Rubik";
+  transition: all ease 0.2s;
+}
+.btn-next:hover {
+  background: #ff8603;
+  color: white;
+}

@@ -1,0 +1,120 @@
+iframe{
+  display:none
+}
+.con {
+  width: 90%;
+}
+.text-orange {
+  color: #ff8603;
+}
+.text-purple {
+  color: #333366;
+}
+.text-primary {
+  color: #191919;
+}
+.text-grey {
+  color: #a1a5c0;
+}
+.text-right {
+  text-align: right;
+}
+.bg-orange {
+  background-color: #ff8603;
+}
+.bg-purple {
+  color: #333366;
+}
+h1 {
+  font-size: 34px;
+  font-weight: 700;
+}
+h2 {
+  font-size: 24px;
+}
+h3 {
+  font-size: 20px;
+  font-weight: 400;
+}
+h4 {
+  font-size: 16px;
+}
+Button {
+  font-size: 18px;
+}
+.text {
+  font-size: 18px;
+}
+.text-medium {
+  font-size: 18px;
+}
+.text-2 {
+  font-size: 16px;
+}
+.text-3 {
+  font-size: 14px;
+}
+.max-width{
+  max-width: 100% !important ;
+}
+td {text-align: right  !important ; direction: rtl  !important;}
+th {text-align: right  !important ; direction: rtl  !important;}
+
+
+.txtAreaDiv {
+  width: 300px;
+  height: 200px;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+a{
+  color: #333366 !important;
+}
+
+.arrow-wrapper {
+ padding-bottom: 70px;
+}
+
+.rectangle-arrow{
+  position: relative;
+  width: 50px;
+  height: 50px;
+  top: 35px;
+  right: 85px;
+  border-style: solid; 
+  border-radius: 10px;
+}
+ .left-arrow {
+        position: relative;
+        width: 25px;
+        height: 25px;
+        top: 100px;
+        right: 150px;
+    }
+
+    .up-arrow {
+        position: relative;
+        width: 25px;
+        height: 25px;
+        top: 25px;
+        right: 100px;
+    }
+
+    .down-arrow {
+        position: relative;
+        width: 25px;
+        height: 25px;
+         top: 50px;
+        right: 100px;
+    }
+    .right-arrow {
+        position: relative;
+        width: 25px;
+        height: 25px;
+        top: -25px;
+        right: 50px;
+    }
+
+
+
+

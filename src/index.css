@@ -1,0 +1,41 @@
+ @import "./styles/fonts/Rubik.css";
+/* @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap"); */
+@import "../node_modules/@syncfusion/ej2-diagrams/styles/material.css";
+
+* {
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+  margin: 0;
+  color: #212529 !important;
+   /* color: hsl(0, 0%, 90%) ;  */
+   background-color:  hsl(0, 0%, 90%) !important;  /**/
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+
+.hidden{
+  display: none;
+}
+
+/*
+Performance improvements
+*/
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.fake-class{
+  background: gray;
+}
+/* .text-purple{
+  color: #333366;
+  background-color: #333366;
+} */

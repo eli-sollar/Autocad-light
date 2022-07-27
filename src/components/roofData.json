@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Roofs can be easily zipped",
+    "image": "/images/icon1.svg"
+  },
+  {
+    "title": "Tiled roofs",
+    "image": "/images/tiled.png"
+  },
+  {
+    "title": "Flat roofs",
+    "image": "/images/flat.png"
+  },
+  {
+    "title": "Lockable roofs",
+    "image": "/images/lockable.png"
+  },
+  {
+    "title": "Metal roofs",
+    "image": "/images/metal.png"
+  }
+]

@@ -1,0 +1,73 @@
+.selected {
+  color: orange;
+}
+.back-btn {
+  width: 200px;
+  height: 50px;
+  background: transparent;
+  color: #ff8603;
+  font-size: "2px";
+  border: 2px solid #ff8603;
+  border-radius: 6px;
+  font-weight: bolder;
+  font-weight: 800;
+  font-family: "Rubik";
+  transition: all ease 0.2s;
+  padding: 5px;
+}
+.wrapper-Autocad-half {
+  width: 30%;
+  display: flex;
+  flex: 0.7;
+}
+.back-btn:hover {
+  background: #ff8603;
+  color: white;
+}
+.img-selected{
+  box-shadow:0px 12px 22px 1px #333;
+}
+
+.create-step-map {
+  width: 100%;
+  display: flex;
+  flex: 0.35 1 0%;
+  flex-direction: column;
+}
+
+.container-steps-form {
+  width: 20%;
+  display: flex;
+  flex: 0.35;
+  height: '100%';
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.wrapper-Autocad {
+  width: 90%;
+  display: flex;
+  flex: 1;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.df {
+  display: flex;
+  flex-direction: row;
+}
+
+#Autocad-wrapper {
+  display: flex;
+  flex: 1;
+}
+#Autocad-wrapper .x-Window{
+  color:hsl(0, 0%, 90%) ;
+}
+/* .container-with-jskecher{
+  flex-direction: "row";
+  display: "flex";
+  justify-content: 'space-between';
+} */

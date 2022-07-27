@@ -1,0 +1,26 @@
+{
+  "Table": [
+    {
+      "Id": 5424,
+      "Name": null,
+      "UserId": 4,
+      "CustomerId": 1025,
+      "RoofTypeId": 3,
+      "RoofSketchId": null,
+      "StepIndex": 4,
+      "Status": 1,
+      "Draft": "{\"stepIndex\":\"4\",\"UserId\":4,\"customerId\":1025,\"createBy\":\"Netser\",\"isDraft\":true,\"fetotDirection\":null,\"status\":1,\"roofTypeId\":\"3\",\"roofTypeText\":\"שטוח\",\"ProjectId\":\"5424\",\"projectId\":\"5424\",\"AutocadData\":null,\"zeroPointAbsolute\":{\"x\":0,\"y\":0,\"direction\":\"up\",\"maxYRange\":0},\"panelsHeight\":\"2000\",\"panelsWidth\":\"1000\",\"panelsThickness\":\"35\",\"panelsVoltage\":\"45\",\"panelsAmsl\":\"12\",\"projectName\":null,\"modalType\":\"7\",\"modalTypeText\":\"W0\",\"weightType\":\"50\",\"panelsType\":2,\"heightParallel\":\"150\",\"triangle\":{\"angle\":0,\"frontLegHeight\":0},\"zeroPoint\":{\"x\":7113,\"y\":830,\"direction\":\"up\",\"maxYRange\":4021},\"panelsCount\":{\"horizontal\":0,\"vertical\":\"2\"},\"distanceFromZeroPoint\":{\"dy\":0,\"dx\":0},\"panelsMap\":{\"3,0,4,0,0,150\":{\"label\":\"A\",\"rowsCount\":0,\"parameters\":[{\"LengthPanel\":\"2000\",\"WidthPanel\":\"1000\",\"Angle\":0,\"SeaLevel\":\"12\",\"L1\":0,\"TypeOfTriangle\":3,\"LyingPanels\":0,\"StandingPanels\":\"4\",\"TypeRoof\":\"7\",\"TypeRoofText\":\"W0\",\"InitialPositionX\":3050,\"InitialPositionY\":830,\"RealSpace\":0,\"HeightParallel\":\"150\",\"ZeroPointAbsolute\":{\"x\":0,\"y\":0,\"direction\":\"up\",\"maxYRange\":0},\"ArrLocationFatotStr\":\"\",\"label\":\"A\"}],\"groupId\":1},\"2,0,2,0,0,150\":{\"label\":\"B\",\"rowsCount\":0,\"parameters\":[{\"LengthPanel\":\"2000\",\"WidthPanel\":\"1000\",\"Angle\":0,\"SeaLevel\":\"12\",\"L1\":0,\"TypeOfTriangle\":2,\"LyingPanels\":0,\"StandingPanels\":\"2\",\"TypeRoof\":\"7\",\"TypeRoofText\":\"W0\",\"InitialPositionX\":7113,\"InitialPositionY\":830,\"RealSpace\":0,\"HeightParallel\":\"150\",\"ZeroPointAbsolute\":{\"x\":0,\"y\":0,\"direction\":\"up\",\"maxYRange\":0},\"ArrLocationFatotStr\":\"\",\"label\":\"B\"}],\"groupId\":2}},\"groupId\":2,\"currentLabel\":\"B\"}",
+      "CreateAt": "2022-07-27T08:49:29.423",
+      "UpdateAt": "2022-07-27T10:13:12.65",
+      "CreateBy": "Netser",
+      "AutocadData": "{\"version\":3,\"objects\":[{\"id\":\"6\",\"type\":\"Segment\",\"role\":null,\"stage\":0,\"data\":{\"a\":{\"x\":16170,\"y\":7500},\"b\":{\"x\":3050,\"y\":7500}},\"layer\":\"SKETCH\"},{\"id\":\"15\",\"type\":\"Segment\",\"role\":null,\"stage\":0,\"data\":{\"a\":{\"x\":3050,\"y\":7500},\"b\":{\"x\":3050,\"y\":830}},\"layer\":\"SKETCH\"},{\"id\":\"24\",\"type\":\"Segment\",\"role\":null,\"stage\":0,\"data\":{\"a\":{\"x\":3050,\"y\":830},\"b\":{\"x\":16170,\"y\":830}},\"layer\":\"SKETCH\"},{\"id\":\"33\",\"type\":\"Segment\",\"role\":null,\"stage\":0,\"data\":{\"a\":{\"x\":16170,\"y\":830},\"b\":{\"x\":16170,\"y\":7500}},\"layer\":\"SKETCH\"}],\"dimensions\":[],\"labels\":[],\"stages\":[{\"constraints\":[{\"typeId\":\"PCoincident\",\"objects\":[\"33:B\",\"6:A\"],\"stage\":0,\"annotations\":[]},{\"typeId\":\"PCoincident\",\"objects\":[\"6:B\",\"15:A\"],\"stage\":0,\"annotations\":[]},{\"typeId\":\"PCoincident\",\"objects\":[\"15:B\",\"24:A\"],\"stage\":0,\"annotations\":[]},{\"typeId\":\"PCoincident\",\"objects\":[\"24:B\",\"33:A\"],\"stage\":0,\"annotations\":[]},{\"typeId\":\"Horizontal\",\"objects\":[\"6\"],\"constants\":{\"angle\":180},\"stage\":0,\"annotations\":[]},{\"typeId\":\"Horizontal\",\"objects\":[\"24\"],\"constants\":{\"angle\":0},\"stage\":0,\"annotations\":[]},{\"typeId\":\"Vertical\",\"objects\":[\"33\"],\"constants\":{\"angle\":90},\"stage\":0,\"annotations\":[]},{\"typeId\":\"Vertical\",\"objects\":[\"15\"],\"constants\":{\"angle\":270},\"stage\":0,\"annotations\":[]}],\"generators\":[]}],\"constants\":\"\"}",
+      "ProjectName": null,
+      "CustomerName": "עופר חורש",
+      "CustomerEmail": "סתם מייל של יורי",
+      "CustomerPhoneNumber": "סתם טלפון",
+      "RoofTypeName": "שטוח",
+      "StatusName": "בתהליך",
+      "UserName": "netser"
+    }
+  ]
+}

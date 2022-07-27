@@ -1,0 +1,59 @@
+{
+    "Table": [
+      {
+        "Id": 7,
+        "Key": 1.0,
+        "Value": "טרפזי",
+        "I18nId": null,
+        "CssClass": null,
+        "CreateAt": null,
+        "CreateBy": null,
+        "ImageName": null,
+        "IsActive": true
+      },
+      {
+        "Id": 8,
+        "Key": 2.0,
+        "Value": "שטוח",
+        "I18nId": null,
+        "CssClass": null,
+        "CreateAt": null,
+        "CreateBy": null,
+        "ImageName": null,
+        "IsActive": true
+      },
+      {
+        "Id": 9,
+        "Key": 3.0,
+        "Value": "R51",
+        "I18nId": null,
+        "CssClass": null,
+        "CreateAt": null,
+        "CreateBy": null,
+        "ImageName": null,
+        "IsActive": true
+      },
+      {
+        "Id": 10,
+        "Key": 4.0,
+        "Value": "R52",
+        "I18nId": null,
+        "CssClass": null,
+        "CreateAt": null,
+        "CreateBy": null,
+        "ImageName": null,
+        "IsActive": true
+      },
+      {
+        "Id": 11,
+        "Key": 5.0,
+        "Value": "R53",
+        "I18nId": null,
+        "CssClass": null,
+        "CreateAt": null,
+        "CreateBy": null,
+        "ImageName": null,
+        "IsActive": true
+      }
+    ]
+  }

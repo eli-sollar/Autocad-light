@@ -1,0 +1,42 @@
+#panel-b-bot {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  #logo {
+    float: left;
+  }
+  #dock-parent {
+    width: 100%;
+    height: calc(35%);
+    display: flex;
+  }
+  #react-controls {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 0;
+  }
+  .button-group {
+    float: left;
+  }
+  #commands {
+    height: 200px;
+    width: 700px;
+  }
+  #constrFilter {
+    height: 300px;
+    width: 170px;
+  }
+  #commands-content {
+    padding: 0;
+  }
+  .no-padding {
+    padding: 0;
+  }
+  #global-windows {
+    width: 0;
+    height: 0;
+  }
+  
