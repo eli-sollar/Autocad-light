@@ -17,7 +17,8 @@ body {
 }
 .logo {
   color: #bbb;
-  font-size: 16px;
+  height: auto;
+  width: 200px;
   padding: 8px 0 0 10px;
   cursor: alias;
 }

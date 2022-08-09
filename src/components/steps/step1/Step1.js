@@ -113,11 +113,37 @@ const Step1 = (props) => {
 
   return (
 
-    <form className="" onSubmit={handleSubmit} id={`step${activeId}`}>
+    <form  onSubmit={handleSubmit} id={`step${activeId}`}>
+        <h3 className="text-center">פרויקט</h3>
+
+<div className="d-flex justify-content-around">
+    <span>
+      בחר לקוח:
+    </span>
+    {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+    <input type={"text"}></input>
+</div>
+
+<div className="d-flex justify-content-around select-3">
+    <span>
+      בחר לקוח:
+    </span>
+    {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" value="Name" label="שם ספק"></SelectCustom>}
+</div>
+
+<div className="d-flex justify-content-around select-3">
+    <span>
+      בחר לקוח:
+    </span>
+    {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" value="Name" label="שם ספק"></SelectCustom>}
+</div>
+<div className="mt-5">
+      <h4 className="text-center"> סוג גג </h4>
       <RadioGroup
         aria-labelledby="roofTypes"
         name="roofTypes"
         row
+        className="d-flex justify-content-center flex-column image-radio"
         value={store.roofTypeId ?? ''}
         onChange={e => actions.setRoofSelected(dispatch, e.currentTarget.value)}
       >
@@ -128,15 +154,9 @@ const Step1 = (props) => {
           )
         }
       </RadioGroup>
-      <span>
-        בחר לקוח:
-      </span> {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" value="Name" label="שם ספק"></SelectCustom>}
-
-      <AddCustomer OnSubmit={addCustomersHandler}></AddCustomer>
+</div>
+      {/* <AddCustomer OnSubmit={addCustomersHandler}></AddCustomer> */}
       <br />
-      <span>בחר מתכנן</span>
-
-      {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setPlanner(dispatch, data)} defaultData={store.plannerDefault} name="Planner" dataSource="Planners" lKey="Id" value="UserName" label="שם מתכנן"></SelectCustom>}
       {store.roofTypeId != constants.ROOF_TYPE.FLAT && <>
         <span>    בחר כיוון</span>
         <RadioGroup

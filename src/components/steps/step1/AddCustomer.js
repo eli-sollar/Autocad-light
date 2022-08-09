@@ -60,9 +60,9 @@ const AddCustomer = (props) => {
     setOpen(false);
   };
   return (<>
-    <Button variant="outlined" onClick={handleClickOpen}>
+    {/* <Button variant="outlined" onClick={handleClickOpen}>
       הוספת לקוח
-    </Button>
+    </Button> */}
 
 
     <Dialog open={open} onClose={closeHandler}>

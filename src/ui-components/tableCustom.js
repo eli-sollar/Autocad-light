@@ -105,15 +105,41 @@ if(confirm("Are you sure?")){
                         return <TableCell >{row[key]}</TableCell>
                       })}
                       <TableCell >
-                        <span className="m-1"> <button onClick={() => remove(row.Id)}>X</button></span>
+                        {/* <span className="m-1"> <button onClick={() => remove(row.Id)}>X</button></span> */}
                          {row.Status == 0 && <span className="m-1"><Link state={{projectName:row.ProjectName} }  to={`/Create/1/${row.Id}#${row.Id}` } >
                         
-                          <button>start</button>
+                          {/* <button>start</button> */}
                         </Link></span>}
-                        {row.Status == 1 && <span className="m-1"><Link state={{projectName:row.ProjectName} }  to={`/Create/1/${row.Id}#${row.Id}`}>
+                        {/* {row.Status == 1 && <span className="m-1"><Link state={{projectName:row.ProjectName} }  to={`/Create/1/${row.Id}#${row.Id}`}>
                           <button>edit</button>
-                        </Link></span>}
-                        <span><button onClick={() => downloadFile(row.Id)}>export</button></span>
+                        </Link></span>} */}
+                      {
+                        !props.table2 ? (
+                          <div class="btn-group">
+                          <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <button type="button" class="btn btn-warning">הורדה</button>
+    
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">הורדה</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else here</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+    
+                          </div>
+                        ):
+                        (
+                          <div>
+                            <a className="me-2 bg-orange p-1 text-white"> לערוך <i class="fa-solid fa-file-pen"></i></a>
+                            <a className="me-2 bg-orange p-1 text-white"> לייצא <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <a className="me-2 bg-danger p-1 text-white"> <i class="fa-solid fa-trash-can"></i></a>
+                          </div>
+                        )
+                      }
+
                       </TableCell>
                     </TableRow>
                   );

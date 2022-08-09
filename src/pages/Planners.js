@@ -16,7 +16,7 @@ const Planners = (props) => {
   const [files, setFiles] = useState([]);
   const [filesList, setFilesList] = useState([]);
   const [customerId, setCustomers] = useState();
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
 
   const [projectName, setProjectName] = useState();
@@ -59,12 +59,12 @@ const navigate = useNavigate();
       const projectId = await httpService.Post("Data/Set", bodyParameters, queryParameters);
       queryParameters = { "folder": projectId };
       //if (formData.hasOwnProperty("files")) {
-        const responseFile = await httpService.PostFile("Repository/Upload", formData, queryParameters);
+      const responseFile = await httpService.PostFile("Repository/Upload", formData, queryParameters);
       //}
-      
+
       alert("Success!");
 
-     
+
       navigate('/Dashboard', { replace: true })
     } catch (error) {
       console.error(error, "Can't create a new project.")
@@ -93,48 +93,60 @@ const navigate = useNavigate();
   }
   return (<>
 
-    <Header btn={"LOG OUT"} />
+    <Header />
 
     <Container>
-      <h1>
-        ניהול מתכננים
-      </h1>
+      <div className="d-flex justify-content-between mt-4 align-items-center mt-3">
+        <span className="fs-1">ניהול עבודה</span>
+        <Link to="/create">
+          <button className="btn-lg-2">ניהול פרויקטים</button>
+        </Link>
+      </div>
       <h3>
-        הוספת פרוייקט
+        הוסף פרויקט
       </h3>
-      <Link to='/dashboard'>
-        ניהול פרוייקטים</Link>
-      <form onSubmit={submitHandler}>
+      {/* <Link to='/dashboard'>
+        ניהול פרוייקטים</Link> */}
+      <form onSubmit={submitHandler} className="d-flex justify-content-center align-items-center planners-form flex-column">
+        <div className="w-75">
+          <div className="d-flex justify-content-between mt-2">
+            <span>
+            שם פרויקט
+            </span>
+            <input style={{width: 576}} type={"text"}></input>
+          </div>
+          {/* <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">שם פרויקט</label>
+            <div>
+              <input type="email" class="form-control" id="inputEmail3" />
+            </div>
+          </div> */}
+          <div className=" d-flex justify-content-between mt-4">
+            <label>שם מתכנן </label>
+            <div className="select-box">
+              <SelectCustom onChange={(data, type) => setPlannerId(data)} name="Planner" dataSource="Planners" lKey="Id" value="UserName" label="שם מתכנן"></SelectCustom>
+            </div>
+          </div>
+          <div className=" d-flex justify-content-between mt-4">
+            <label>שם מתכנן </label>
+            <div className="select-box">
+              <SelectCustom onChange={(data, type) => setPlannerId(data)} name="Planner" dataSource="Planners" lKey="Id" value="UserName" label="שם מתכנן"></SelectCustom>
+            </div>
+          </div>
+          <div className=" d-flex  mt-4 ">
+            <label>הוסף קובץ</label>
+            <div className="select-box-2">
+              <button className="btn btn-secondary"> יש לבחור קבצים </button>
+              <span> קובץ 1</span>
+              <span>קובץ 1</span>
+              <span>קובץ 1</span>
+            </div>
+          </div>
+          <div className="text-center">
+          <button className="btn btn-warning w-100   mt-4 ms-auto">הוסף</button>
+          </div>
+        </div>
 
-        <TextField
-          autoFocus
-          margin="dense"
-          id="project-name"
-          label="שם פרוייקט"
-          type="text"
-          fullWidth
-          variant="standard"
-          value={projectName}
-          onChange={(e) => setProjectName(e.currentTarget.value)}
-        />
-
-
-
-        <SelectCustom onChange={(data, type) => setPlannerId(data)} name="Planner" dataSource="Planners" lKey="Id" value="UserName" label="שם מתכנן"></SelectCustom>
-        <span>
-          בחר לקוח:
-        </span> {dataLoaded && <SelectCustom onChange={(data, type) => setCustomers(data)} defaultData={customerId} name="Customers" dataSource="Customers" lKey="Id" value="Name" label="שם ספק"></SelectCustom>}
-
-        <AddCustomer OnSubmit={addCustomersHandler}></AddCustomer>
-
-        <Form.Group controlId="formFile1" className="mb-3">
-          <Form.Label>  קובץ 1</Form.Label>
-          <Form.Control type="file" multiple onChange={handleFileInput} />
-          <Form.Label>  {filesList} </Form.Label>
-        </Form.Group>
-
-
-        <button>save</button>
       </form>
 
 

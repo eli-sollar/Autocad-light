@@ -171,9 +171,10 @@ const step6 = (props) => {
 
   return (
     <div>
-      <h2 className="py-5 mt-5">תוכנית הצבה - פנלים</h2>
-      <form onSubmit={handleSubmit} id="step6">
-        <Tabs>
+      <h2 className="text-center">הערות</h2>
+      <form style={{height:400}} onSubmit={handleSubmit} className="bg-white">
+
+        {/* <Tabs>
           <TabList>
             <Tab>יצירה</Tab>
             <Tab>עריכה</Tab>
@@ -304,7 +305,7 @@ const step6 = (props) => {
 
           </TabPanel>
  
-        </Tabs>
+        </Tabs> */}
 
       </form>
     </div>

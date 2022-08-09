@@ -65,8 +65,9 @@ const Dashboard = (props) => {
     const parameters = { "name": "Projects", parameters: filterParametersStr }
     const result = await httpService.Get("Data/DataSource", parameters);
     var projects = manageData(result);
-    if (status == "new") { setNewProjects(projects); }
+    if (status == "new") { setNewProjects(projects);  console.log(projects)}
     else {
+      // console.log(projects, "This is the projexts")
       setProjects(projects);
     }
   }
@@ -76,24 +77,37 @@ const Dashboard = (props) => {
     if (result.Table) {
 
       let tempArray = [];
-      for (let i = 0; i < result.Table.length; i++) {
+      for (let i = 0; i < result.Table.length ; i++) {
         tempArray.push({
           Id: result.Table[i].Id,
-          ProjectName: result.Table[i].ProjectName,
+          ProjectName:  "חוות דן חרמון",
           Date: formatDate(parseDate(result.Table[i].CreateAt, 'MM/dd/yyyy')),
           RoofTypeName: result.Table[i].RoofTypeName,
           CustomerName: result.Table[i].CustomerName,
           UserName: result.Table[i].UserName,
-          CustomerEmail: result.Table[i].CustomerEmail,
+          // CustomerEmail: result.Table[i].CustomerEmail,
 
-          CustomerPhoneNumber: result.Table[i].CustomerPhoneNumber,
+          // CustomerPhoneNumber: result.Table[i].CustomerPhoneNumber,
 
-          StatusName: result.Table[i].StatusName,
-          Status: result.Table[i].Status
+          // StatusName: result.Table[i].StatusName,
+          // Status: result.Table[i].Status
+        })
+        tempArray.push({
+          Id: result.Table[i].Id,
+          ProjectName:  "חוות דן חרמון",
+          Date: formatDate(parseDate(result.Table[i].CreateAt, 'MM/dd/yyyy')),
+          RoofTypeName: result.Table[i].RoofTypeName,
+          CustomerName: result.Table[i].CustomerName,
+          UserName: result.Table[i].UserName,
+          // CustomerEmail: result.Table[i].CustomerEmail,
+
+          // CustomerPhoneNumber: result.Table[i].CustomerPhoneNumber,
+
+          // StatusName: result.Table[i].StatusName,
+          // Status: result.Table[i].Status
         })
       }
       projectsArr = tempArray;
-
     }
     return projectsArr;
   };
@@ -101,25 +115,18 @@ const Dashboard = (props) => {
   const headCells = [{
     id: "Id", numeric: false, disablePadding: true, label: "מספר מזהה"
   }, {
-    id: "ProjectName", numeric: true, disablePadding: false, label: "שם פרוייקט"
+    id: "ProjectName", numeric: true, disablePadding: false, label: "שם פרויקט"
   }, {
-    id: "Date", numeric: true, disablePadding: false, label: "תאריך יצירה",
+    id: "Date", numeric: true, disablePadding: false, label: "תאריך ",
   },
   {
-    id: "RoofTypeName", numeric: true, disablePadding: false, label: "סוג גג"
+    id: "RoofTypeName", numeric: true, disablePadding: false, label: "לקוח"
   },
   {
-    id: "CustomerName", numeric: true, disablePadding: false, label: "לקוח"
+    id: "CustomerName", numeric: true, disablePadding: false, label: "מתכנן"
   }
     , {
-    id: "UserName", numeric: true, disablePadding: false, label: "מתכנן"
-  }, {
-    id: "CustomerEmail", numeric: true, disablePadding: false, label: "Email"
-  }, {
-    id: "CustomerPhoneNumber", numeric: true, disablePadding: false, label: "טלפון"
-  },
-  {
-    id: "StatusName", display: false, numeric: true, disablePadding: false, label: "סטטוס"
+    id: "UserName", numeric: true, disablePadding: false, label: "נתונים"
   }];
 
 
@@ -147,9 +154,14 @@ const Dashboard = (props) => {
   }
   return (
     <div>
-      <Header btn={"LOG OUT"} />
-
+      <Header  />
       <Container>
+      <div className="d-flex justify-content-between align-items-center mt-3">
+        <button className="btn-lg-2"> ניהול עבודות</button>
+        <Link to="/Planners">
+        <button className="bg-orange btn-large"><span>פרויקט חדש  </span> <i class="fa-solid fa-cart-plus"></i> </button>
+        </Link>
+      </div>
         <Dialog onClose={handleClose} open={openDialog}>
           <div>
             {filesList.map(function (value, index) {
@@ -160,51 +172,34 @@ const Dashboard = (props) => {
           </div>
 
         </Dialog>
-        <Link to='/planners'>
-          עבור למסך ניהול מתכננים</Link>
-        <h2 className="py-5 font-weight-bold">פרויקטים חדשים</h2>
+        <h2 >פרויקטים חדשים</h2>
+
         <TableCustom remove={remove} downloadFile={downloadFile} rows={newProjects} columns={headCells}></TableCustom>
 
-        <h2 className="py-5 font-weight-bold">פרויקטים שהסתיימו \ בתהליך</h2>
-        <Form>
+        <h2 >פרויקטים שהסתיימו \ בתהליך</h2>
+        <Form className="mb-4">
           <Row>
-            <Col md={2}>
-              <DatePickerCustom onChange={(data) => setDate(data)} />
+            <Col md={1} className="text-center">
+                <h3>סינון</h3>           
             </Col>
             <Col md={2}>
-
-              <SelectCustom onChange={(data, type) => setRoofType(data)} pWidth={30} pHeight={30} dataSource="RoofTypes" lKey="Key" value="Value" label="סוג הגג"></SelectCustom>
-
+              <SelectCustom onChange={(data, type) => setRoofType(data)} pWidth={30} pHeight={30} dataSource="RoofTypes" lKey="Key" value="Value" ></SelectCustom>
             </Col>
             <Col md={2}>
-              <SelectCustom onChange={(data, type) => setPlanner(data)} defaultData={plannerId}  dataSource="Planners" lKey="Id" value="UserName" label="שם מתכנן"></SelectCustom>
+              <SelectCustom onChange={(data, type) => setPlanner(data)} defaultData={plannerId}  dataSource="Planners" lKey="Id" value="UserName" ></SelectCustom>
             </Col>
-            <Col md={2}><SelectCustom onChange={(data, type) => setCustomerId(data)} dataSource="Customers" lKey="Id" value="Name" label="שם לקוח"></SelectCustom></Col>
-            <Col md={2}> <TextField
-              id="project-name"
-              label="שם פרוייקט"
-              value={projectName}
-              onChange={(e) => setProjectName(e.target.value)}
-              autoComplete='off'
-              color="primary"
+            <Col md={2}><SelectCustom onChange={(data, type) => setCustomerId(data)} dataSource="Customers" lKey="Id" value="Name"></SelectCustom></Col>
+            <Col md={2}><SelectCustom onChange={(data, type) => setCustomerId(data)} dataSource="Customers" lKey="Id" value="Name"></SelectCustom></Col>
 
-
-            /></Col>
-
-            <Col md={2}>
-              <button onClick={search} className="text-white">
-                חפש
-              </button></Col>
-            <Col md={2}>
-              <Link to='/create'>
-                <button className="login-btn text-white">
-                 הוסף פרוייקט חדש            </button>
-              </Link>
+            <Col md={2} className="text-center">
+              <button onClick={search} className="bg-purple w-50 px-3 py-1 rounded-pill mt-2 ">
+                  חפש 
+              </button>
             </Col>
           </Row>
         </Form>
       
-        <TableCustom remove={remove} rows={projects} columns={headCells}></TableCustom>
+        <TableCustom remove={remove} rows={projects} columns={headCells} table2={true}></TableCustom>
 
 
       </Container>

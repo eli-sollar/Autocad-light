@@ -1,7 +1,7 @@
 import { Checkbox, TextField } from "@mui/material";
 
 import React, { useContext, useEffect, useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -25,7 +25,7 @@ const Step5 = (props) => {
   const stepContext = useContext(StepsContext);
   const locationData = useLocation();
   const [plannerId, setPlannerId] = useState();
- // const AutocadManager = new AutocadManager();
+  // const AutocadManager = new AutocadManager();
   let { projectId } = useParams();
   useEffect(() => {
     addCustomEvents(AutocadPickedEvent);
@@ -48,8 +48,8 @@ const Step5 = (props) => {
 
       if (roofTypeId == constants.ROOF_TYPE.FLAT || roofTypeId == constants.ROOF_TYPE.KAL_ZIP) {
         let event = null;
-        let params = null; 
-        
+        let params = null;
+
         if (locationData?.state?.isPrev) {
           props.OnPrev();
         } else {
@@ -121,80 +121,167 @@ const Step5 = (props) => {
   };
   const handleSubmit = event => {
     let params = {
-      UserId:plannerId,
+      UserId: plannerId,
       fetaCount: fetaCount,
       fetaData: fetaData,
-      ProjectId:projectId,
+      ProjectId: projectId,
       //fetot: { direction: directions, x: Math.ceil(zeroPoint.x),y: Math.ceil(zeroPoint.y) }
       fetot: { direction: directions, x: Math.ceil(zeroPoint.x), y: Math.ceil(zeroPoint.y) }
     };
-   
+
     props.OnSubmit(event, params);
 
 
   };
   return (
     <div>
-      <h2 className="py-5">סימון פטות</h2>
+      <h2 className="text-center bg-white mb-0">סימון פטות</h2>
       <form onSubmit={handleSubmit} id="step5">
-        <Row className="text-center mb-5 pb-5">
+        <div class="card text-center">
+          <div class="card-header bg-white">
+            <ul class="nav nav-tabs card-header-tabs border-none" id="myTab">
+              <li class="nav-item border-none">
+                <a href="#home" class="nav-link active" data-bs-toggle="tab">עריכת שורות</a>
+              </li>
+              <li class="nav-item">
+                <a href="#profile" class="nav-link" data-bs-toggle="tab">יצירת שורות</a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="home">
+                <Row className="d-flex gy-3 " >
+                  {["A", "B", "C", "E", "F"].map(el => <Col md={4} ><div class="dropdown">
+                    <button class="bg-orange dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span className="border border-dark px-1 mx-4"> x </span> <strong> {el}</strong>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="#">{el} 1 <span className="ms-5 bg-danger px-2 text-white"> x</span></a>
+                      <a class="dropdown-item" href="#">{el} 2 <span className="ms-5 bg-danger px-2 text-white"> x</span></a>
+                      <a class="dropdown-item" href="#">{el} 3 <span className="ms-5 bg-danger px-2 text-white"> x</span></a>
+                    </div>
+                  </div> </Col>)}
+                </Row>
+                <Container>
+                  <Row className="mt-3">
+                    <span> <strong>העתק</strong></span>
+                    <Col md={9} className="d-flex flex-column">
+                      <div className="d-flex justify-content-around mt-2">
+                        <span >
+                        מרחק
+                        </span>
+                        {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+                        <input style={{width:100}} type={"text"}></input>
+                        
+                      </div>
+                      <div className="d-flex justify-content-around mt-2">
+                        <span >
+                        כמות
+                        </span>
+                        {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+                        <input style={{width:100}} type={"text"}></input>
+                        
+                      </div>
+                    </Col>
+                    <Col md={3}>
+                      <img src="/images/3.png"></img>
+                    </Col>
+                  </Row>
 
-          <Col>
-            <h4 className="py-3 text-right">
-              סמן את הצלע שממנה נתחיל את סימון הפטות ואת המידות שלהן בשירטוט.
-            </h4>
-
-
-            <div className="py-3 d-flex flex-row-start">
-              <div onClick={displayHelpHandler}><HelpOutlineIcon ></HelpOutlineIcon></div>
-
-              {displayHelp == true ? <img width={400} src={require('../../assets/images/select-demo.gif')} alt="select demo" /> : ""}
-            </div>
-            <div className="py-3 d-flex flex-row-start">
-              <TextField
-                id="outlined-basic"
-                label="מספר הפטות"
-                value={fetaCount}
-                onChange={(e) => setFetaCount(e.target.value)}
-                autoComplete='off'
-                color="primary"
-                InputProps={{ inputProps: { min: 0, max: 20, type: "number" } }}
-                sx={{ width: 150 }}
-
-              />
-
-
-            </div>
-
-
-            <div className="py-3">
-              {Array.from({ length: fetaCount }, (item, index) =>
-               <div> <TextField
-                  id={`feta-${index}`}
-                  label={`בין ${index}-${index + 1}`}
-                  variant="standard"
-                  key={`feta-${index}`}
-                  autoComplete='off'
-                  value={fetaData[index]}
-                  onChange={(e) => { fetaDataOnChange(e.currentTarget.value, index) }}
-                />
+                  <Row className="mt-3">
+                    <strong>הזז</strong>
+                    <Col md={9}>
+                      <div className="d-flex justify-content-around mt-2">
+                        <span >
+                        כמות
+                        </span>
+                        {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+                        <input style={{width:100}} type={"text"}></input>
+                      </div>
+                    </Col>
+                    <Col md={3}>
+                      <img src="/images/3.png"></img>
+                    </Col>
+                  </Row>
+                </Container>
+              </div>
+              <div class="tab-pane fade" id="profile">
+                <div className="d-flex flex-column justify-content-center align-items-center">
+                  <label>
+                    סוג שורה
+                  </label>
+                  <select style={{ width: 200 }}>
+                    <option>1</option>
+                    <option>2</option>
+                  </select>
                 </div>
-                )
-              }
+                <Container className="mt-4">
+                  <Row >
+                    <Col md={6}>
+                      <label style={{ fontSize: 14 }}>מס’ פנלים בעמידה</label>
+                      <input style={{ width: 88 }} type={"number"}></input>
+                    </Col>
+                    <Col md={6}>
+                      <label style={{ fontSize: 14 }} >מס’ פנלים בשכיבה</label>
+                      <input style={{ width: 88 }} type={"number"}></input>
+                    </Col>
+                  </Row>
+                </Container>
+                <Container className="mt-5">
+                  <div className="d-flex justify-content-around mt-2">
+                    <span>
+                      זווית משולש
+                    </span>
+                    {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+                    <input type={"text"}></input>
+                  </div>
+                  <div className="d-flex justify-content-around mt-2">
+                    <span>
+                      גובה רגל קידמית
+                    </span>
+                    {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+                    <input type={"text"}></input>
+                  </div>
+                  <div className="d-flex justify-content-around mt-2">
+                    <span>
+                      עמוד הגבהה
+                    </span>
+                    {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+                    <input type={"text"}></input>
+                  </div>
+                </Container>
+                <hr className="my-4"></hr>
+                <Container>
+                  <div className="d-flex justify-content-around mt-2">
+                    <span>
+                      מרחק X מנקודת 0
+                    </span>
+                    {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+                    <input type={"text"}></input>
+                  </div>
+                  <div className="d-flex justify-content-around mt-2">
+                    <span>
+                      מרחק Y מנקודת 0
+                    </span>
+                    {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+                    <input type={"text"}></input>
+                  </div>
+                </Container>
+                <Container className="d-flex mt-3">
+                  <p className="text-center">
+                    בחר את נקודת האפס
+                    שתי צלעות מצתלבות
 
+                  </p>
+                  <img src="/images/3.png"></img>
+                </Container>
+                {/* <button className=" btn-next bg-orange"> צור שורה</button> */}
+              </div>
             </div>
-            <div className="py-3 d-flex flex-row-start">
-           
-              <Direction id="directions-group-button" up={true} down={true} right={true} left={true} value={directions} setVDirections={(direction)=>setVDirections(direction)}/>
-
-            </div>
-          </Col>
-          <button disabled={enableButton} onClick={drawHandle}> שרטט</button>
-
-          <Col>
-
-          </Col>
-        </Row></form>
+          </div>
+        </div>
+      </form>
     </div>
 
   );

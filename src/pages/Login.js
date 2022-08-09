@@ -50,64 +50,28 @@ const Login = () => {
 
   return (
     <div>
-
-      <Header btn={"SIGN UP"} />
-      <Container className="d-flex justify-content-center align-items-center">
-        <div className="loginCard mt-5 pt-5">
-          <h1 className="login-title mb-4 mt-2">הזדהות</h1>
-          <h6 className="login-sub">
-            משתמש חדש{" "}
-            <Link
-              to="/signup"
-              style={{ textDecoration: "none", color: "#ff8603" }}
-              className="create-account"
-
-            >
-              <div> צור משתמש</div>
-            </Link>
-          </h6>
-          <hr className="my-5" />
-          {showText &&
-            <Alert variant="outlined" severity="error">
-              !Wrong user name or password
-            </Alert>
-          }
-          <Form onSubmit={handleSubmit}>
-            {/* <Form.Group className="mb-4">
+      <Header btn={"הירשם"} />
+      <Container className="d-flex flex-column login justify-content-center align-items-center">
+        <div className=" loginCard">
+          <h1 className="text-center">התחברות</h1>
+          <Form>
+            <Form.Group className="mb-4">
+              <label>שם משתמש</label>
               <Form.Control
                 type="email"
-                name="userName"
-                placeholder="E-mail"
                 className="px-3 py-2"
-                value={userName}
-                onChange={(e) => setUserName(e.target.value)}
               />
             </Form.Group>
-
             <Form.Group className="mb-4">
+              <label>סיסמא</label>
               <Form.Control
-                name="password"
                 type="password"
-                placeholder="Password"
                 className="px-3 py-2"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
               />
-            </Form.Group> */}
-            <SelectCustom onChange={(data, type) => setPlannerId(data)} name="Planner" dataSource="Planners" lKey="Id" value="UserName" label="שם מתכנן"></SelectCustom>
-            {/* <h4 className="forgot-text mb-4">?Forgot your password</h4> */}
-
-
-            <Link to={'Dashboard'} state={{ plannerId: planner }}> <button className="login-btn" type="submit">  LOG IN </button> </Link>
-            {/**/}
-
-
-            <h3 className="privacy-text py-4">
-              By clicking the "Sign in" to accept the terms of the{" "}
-              <a href="/" style={{ textDecoration: "none", color: "#ff8603" }}>
-                Privacy and Policy
-              </a>
-            </h3>
+            </Form.Group>
+           <Link to={"Dashboard"}><button  className="login-btn" type="submit">
+            התחבר      
+            </button></Link> 
           </Form>
         </div>
       </Container>

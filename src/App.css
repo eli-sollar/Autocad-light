@@ -20,10 +20,78 @@ iframe{
   text-align: right;
 }
 .bg-orange {
-  background-color: #ff8603;
+  background-color: #FF9B05;
+}
+.btn-lg-2{
+  height: 100px;
+  width:150px;
+  border-radius: 20px;
+  font-size: 20px;
+  background-color: #192C4E;
+  color: white;
+}
+.dropdown-toggle-split{
+  transform: rotate(180deg);
+}
+.bg-purple{
+  color: white !important;
+  background-color: #333366;
+}
+.btn.btn-warning{
+background-color: #FF9B05;
+}
+.planners-form{
+  width: 896px;
+}
+
+.btn-large{
+  height: 100px;
+  width:150px;
+  border-radius: 20px;
+  font-size: 20px;
 }
 .bg-purple {
   color: #333366;
+}
+.wrapper-Autocad{
+  background: #ACACAC !important;
+}
+.select-box{
+  width: 580px;
+}
+.image-radio img{
+  height: 100px !important;
+}
+.muirtl-1c1s55e-MuiFormControlLabel-root{
+display: flex !important;
+flex-direction: row-reverse !important;
+justify-content: space-around;
+}
+.select-box-2{
+  width: 580px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.select-3{
+  margin-top: 15px;
+}
+.select-3 .MuiFormControl-root{
+  width: 200px;
+}
+.card-header-tabs .nav-link.active{
+  border: #ff8603 !important;
+  color:#ff8603 !important
+}
+.step2-images img{
+  align-items: center;
+ height: 100px;
+ width: 150px;
+}
+.select-box-2 span{
+  text-align: center;
+  background-color: #FF9B05;
+  width: 100px;
 }
 h1 {
   font-size: 34px;

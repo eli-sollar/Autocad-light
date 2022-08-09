@@ -39,9 +39,9 @@ const Step3 = (props) => {
         setPanelsThickness(data.panelsThickness);
         setPanelsVoltage(data.panelsVoltage);
         setPanelsAmsl(data.panelsAmsl);
-   
-
       }
+
+      console.log(props.counter, "This is the state counter")
     }
 
   }, []);
@@ -61,7 +61,7 @@ const Step3 = (props) => {
       panelsThickness: panelsThickness,
       panelsVoltage: panelsVoltage,
       panelsAmsl: panelsAmsl,
-  
+
     };
 
     props.OnSubmit(event, parameters);
@@ -72,73 +72,84 @@ const Step3 = (props) => {
 
   return (
     <div>
-      <h2 className="py-5">הזנת נתונים</h2>
+      <h2 className="text-center" >הזנת נתונים</h2>
       <form onSubmit={handleSubmit} id="step3">
-        <Row className="mb-5 pb-5">
-
+        <Row >
           <Col>
+            <h5 className="text-center" >מידות פנלים</h5>
+            <form>
+              <div className="d-flex justify-content-around mt-2">
+                <span>
+                  אורך (מ”מ)
+                </span>
+                {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+                <input type={"text"}></input>
+              </div>
+              <div className="d-flex justify-content-around mt-2">
+                <span>
+                  רוחב (מ”מ)
+                </span>
+                {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+                <input type={"text"}></input>
+              </div>
+              <div className="d-flex justify-content-around mt-2">
+                <span>
+                  עובי (מ”מ)
+                </span>
+                {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+                <input type={"text"}></input>
+              </div>
+              <div className="d-flex justify-content-around mt-2">
+                <span>
+                  הספק (וואט)
+                </span>
+                {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+                <input type={"text"}></input>
+              </div>
+              <div className="text-center">
+                <hr></hr>
+                <h5>גובה מבנה מעל פני הים</h5>
+                <input type={"text"}></input>
+                <hr></hr>
+              </div>
+              {
+                props.counter !== 3 && (
+                  <div>
+                    <h5 className="text-center">מרחק בין טרפזים</h5>
+                    <div className="d-flex justify-content-around">
+                      <img src="/images/1.png">
+                      </img>
+                      <img src="/images/2.png">
+                      </img>
+                    </div>
+                  </div>
+                )
+              }
 
-            <h3 className="py-3">מידות פנלים</h3>
+              {
+               !(props.counter > 2) &&
+                <>
+                  <div>
+                    <div className="d-flex justify-content-around mt-2">
+                      <span>
+                        מרחק בין טרפזים
+                      </span>
+                      {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+                      <input type={"text"}></input>
+                    </div>
+                    <div className="d-flex justify-content-between p-4   mt-2">
+                      <span>
+                        סוג טרפז
+                      </span>
+                      {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+                      <input type={"number"}></input>
+                    </div>
+                  </div>
+                </>
+              }
 
-            <div>
-
-              <TextField
-                id="panel-height"
-                label="אורך (מ''מ)"
-                value={panelsHeight}
-                onChange={(e) => setPanelsHeight(e.target.value)}
-                autoComplete='off'
-                color="primary"
-
-
-              />
-              <TextField
-                id="panel-width"
-                label="רוחב (מ''מ)"
-                value={panelsWidth}
-                onChange={(e) => setPanelsWidth(e.target.value)}
-                autoComplete='off'
-                color="primary"
-
-
-              />
-              <TextField
-                id="panel-thickness"
-                label="עובי (מ''מ)"
-                value={panelsThickness}
-                onChange={(e) => setPanelsThickness(e.target.value)}
-                autoComplete='off'
-                color="primary"
-
-
-              />
-              <TextField
-                id="panel-voltage"
-                label="הספק (ואט)"
-                value={panelsVoltage}
-                onChange={(e) => setPanelsVoltage(e.target.value)}
-                autoComplete='off'
-                color="primary"
-
-
-              />
-            </div>
+            </form>
           </Col>
-                 </Row><Col>
-          <h3 className="py-3">   גובה מעל פני הים</h3>
-          <TextField
-            id="amsl"
-            label="גובה מעל פני הים"
-            value={panelsAmsl}
-            onChange={(e) => setPanelsAmsl(e.target.value)}
-            autoComplete='off'
-            color="primary"
-
-
-          />
-        </Col>
-        <Row>
-
         </Row>
       </form>
     </div>

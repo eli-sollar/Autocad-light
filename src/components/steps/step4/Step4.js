@@ -95,110 +95,220 @@ const Step4 = (props) => {
   };
   return (
     <div>
-      <h2 className="py-5">הזנת נתונים</h2>
+      <h2 className='text-center'>הזנת נתונים</h2>
       <form onSubmit={handleSubmit} id="step4">
-        <Row className="mb-5 pb-5">
+      <h4 className='text-center'>
+          סימון פטות  
+       </h4>
+       <p className='text-center'>
+       סמן את הצלע והכיוון שמהם יתחילו שרטוט 
+הפטות ואת המידות שלהן בשרטוט הבתאמה.
+        </p>  
+        <div className='text-center my-3'>
+        <img src='/images/3.png'></img>
+        </div>
+        <div className="d-flex justify-content-around mt-2">
+              <span >
+              מספר הפטות 
+              </span>
+              {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+              <input  value={20} type={"text"}></input>
+         </div>
+        <Row className='mt-3'>
+          <Col md={6}>
+          <div className="d-flex justify-content-around mt-2">
+              <span style={{fontSize: 14}}>
+              בין 0 ל-1
+              </span>
+              {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+              <input style={{width: 88}} type={"text"}></input>
+         </div>
+          </Col>
+          <Col md={6} >
+          <div className="d-flex justify-content-around mt-2">
+              <span style={{fontSize: 14}}>
+              בין 10 ל-11
+              </span>
+              {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+              <input style={{width: 88}} type={"text"}></input>
+         </div>
+          </Col>
 
-          <Col>
+          <Col md={6}>
+          <div className="d-flex justify-content-around mt-2">
+              <span style={{fontSize: 14}}>
+              בין 1 ל-2
+              </span>
+              {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+              <input style={{width: 88}} type={"text"}></input>
+         </div>
+          </Col>
+          <Col md={6} >
+          <div className="d-flex justify-content-around mt-2">
+              <span style={{fontSize: 14}}>
+              בין 11 ל-12
+              </span>
+              {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+              <input style={{width: 88}} type={"text"}></input>
+         </div>
+          </Col>
 
-            <h3 className="py-3">סוג המודל- {store.roofTypeText}</h3>
-            <div>
-              <RadioGroup
-                name="modalType"
-                row
-                value={store.modalType || ''}
-                onChange={handleChange}
-              >
-                {
-                  Object.keys(store.modalTypes).map((key) =>
-                    store.modalTypes[key].ImageName &&
-                    <FormControlLabel labelPlacement="bottom" key={store.modalTypes[key].Key} value={store.modalTypes[key].Key} label={store.modalTypes[key].Value} control={<Radio icon={<ImageWrapper pWidth={"150"} pHeight={"150"} src={store.modalTypes[key].ImageName} />} checkedIcon={<ImageWrapper class="img-selected" pWidth={"160"} pHeight={"160"} src={store.modalTypes[key].ImageName} />} ></Radio>} />
-                  )
-                }
-              </RadioGroup>
-            </div>
+          <Col md={6}>
+          <div className="d-flex justify-content-around mt-2">
+              <span style={{fontSize: 14}}>
+              בין 1 ל-3
+              </span>
+              {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+              <input style={{width: 88}} type={"text"}></input>
+         </div>
+          </Col>
+          <Col md={6} >
+          <div className="d-flex justify-content-around mt-2">
+              <span style={{fontSize: 14}}>
+              בין 11 ל-13
+              </span>
+              {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+              <input style={{width: 88}} type={"text"}></input>
+         </div>
+          </Col>
+           
+          <Col md={6}>
+          <div className="d-flex justify-content-around mt-2">
+              <span style={{fontSize: 14}}>
+              בין 1 ל-4
+              </span>
+              {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+              <input style={{width: 88}} type={"text"}></input>
+         </div>
+          </Col>
+          <Col md={6} >
+          <div className="d-flex justify-content-around mt-2">
+              <span style={{fontSize: 14}}>
+              בין 11 ל-14
+              </span>
+              {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+              <input style={{width: 88}} type={"text"}></input>
+         </div>
+          </Col>
 
-            {store.roofTypeId == constants.ROOF_TYPE.FLAT && <>
-              <h4 className="py-3">סוג המשקולת</h4>
-              <div>
+          <Col md={6}>
+          <div className="d-flex justify-content-around mt-2">
+              <span style={{fontSize: 14}}>
+              בין 1 ל-5
+              </span>
+              {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+              <input style={{width: 88}} type={"text"}></input>
+         </div>
+          </Col>
+          <Col md={6} >
+          <div className="d-flex justify-content-around mt-2">
+              <span style={{fontSize: 14}}>
+              בין 11 ל-15
+              </span>
+              {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+              <input style={{width: 88}} type={"text"}></input>
+         </div>
+          </Col>
 
-                {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setWeightType(dispatch, data)} defaultData={store.weightType} name="Weight" dataSource="WeightTypes" lKey="Value" value="Value" label="משקל (ק'ג)"></SelectCustom>}
-              </div>
+          <Col md={6}>
+          <div className="d-flex justify-content-around mt-2">
+              <span style={{fontSize: 14}}>
+              בין 1 ל-6
+              </span>
+              {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+              <input style={{width: 88}} type={"text"}></input>
+         </div>
+          </Col>
+          <Col md={6} >
+          <div className="d-flex justify-content-around mt-2">
+              <span style={{fontSize: 14}}>
+              בין 11 ל-16
+              </span>
+              {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+              <input style={{width: 88}} type={"text"}></input>
+         </div>
+          </Col>
 
-              <h4 className="py-3">
-                <span>                ק"ג למטר פנל מרובע</span>
-              </h4>
-              <div>
+          <Col md={6}>
+          <div className="d-flex justify-content-around mt-2">
+              <span style={{fontSize: 14}}>
+              בין 1 ל-7
+              </span>
+              {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+              <input style={{width: 88}} type={"text"}></input>
+         </div>
+          </Col>
+          <Col md={6} >
+          <div className="d-flex justify-content-around mt-2">
+              <span style={{fontSize: 14}}>
+              בין 11 ל-17
+              </span>
+              {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+              <input style={{width: 88}} type={"text"}></input>
+         </div>
+          </Col>
 
-                <TextField
-                  id="weight-type"
-                  label="הזינו את המספר"
-                  value={store.weightSquare}
-                  onChange={(e) => actions.setWeightSquare(dispatch, e.target.value)}
-                  autoComplete='off'
-                  color="primary"
+          <Col md={6}>
+          <div className="d-flex justify-content-around mt-2">
+              <span style={{fontSize: 14}}>
+              בין 1 ל-8
+              </span>
+              {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+              <input style={{width: 88}} type={"text"}></input>
+         </div>
+          </Col>
+          <Col md={6} >
+          <div className="d-flex justify-content-around mt-2">
+              <span style={{fontSize: 14}}>
+              בין 11 ל-18
+              </span>
+              {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+              <input style={{width: 88}} type={"text"}></input>
+         </div>
+          </Col>
 
+          <Col md={6}>
+          <div className="d-flex justify-content-around mt-2">
+              <span style={{fontSize: 14}}>
+              בין 1 ל-9
+              </span>
+              {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+              <input style={{width: 88}} type={"text"}></input>
+         </div>
+          </Col>
+          <Col md={6} >
+          <div className="d-flex justify-content-around mt-2">
+              <span style={{fontSize: 14}}>
+              בין 11 ל-19
+              </span>
+              {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+              <input style={{width: 88}} type={"text"}></input>
+         </div>
+          </Col>
 
-                />
-              </div>
-            </>
-            }
-            {store.roofTypeId == constants.ROOF_TYPE.ISKURIT && store.fetotDirection == constants.FETOT_DIRECTION.PARALLEL && <>
-
-
-              <h4 className="py-3">
-                <span>מרחק בין טרפזים</span>
-              </h4>
-              <div>
-
-                <TextField
-                  id="trapezoid-distance"
-                  label="מרחק (מ''מ)"
-                  value={store.trapezoidDistance}
-                  onChange={(e) => actions.setTrapezoidDistance(dispatch, e.target.value)}
-                  autoComplete='off'
-                  color="primary"
-
-
-                />
-              </div>
-              <h4 className="py-3">סוג טרפז</h4>
-              <div>
-
-                {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setTrapezoidTypes(dispatch, data)} defaultData={store.trapezoidTypes} name="TrapezoidTypes" dataSource="TrapezoidTypes" lKey="Key" value="Value" label="סוג טרפז"></SelectCustom>}
-              </div>
-              {store.trapezoidTypes == constants.TRAPEZOID_TYPES.TRAPEZOID && <>
-                <h4 className="py-3">מידות טרפז עליון</h4>
-                <SelectCustom onChange={(data, type) => actions.setTrapezoidUpperSize(dispatch, data)} defaultData={store.trapezoidUpperSize} name="TrapezoidUpperSize" dataSource="TrapezoidUpperSizeTypes" lKey="Key" value="Value" label="מידות טרפז עליון"></SelectCustom>
-              </>
-              }
-            </>
-
-            }
-            {store.roofTypeId == constants.ROOF_TYPE.KAL_ZIP && <>
-
-
-              <h4 className="py-3">
-                <span>מרחק בין קל זיפ</span>
-              </h4>
-              <div>
-
-                <TextField
-                  id="kalzip-distance"
-                  label="מרחק (מ''מ)"
-                  value={store.realspace}
-                  onChange={(e) => actions.setRealspace(dispatch, e.target.value)}
-                  autoComplete='off'
-                  color="primary"
-
-
-                />
-            
-              </div>
-              </>}
-            </Col>
-          
-        </Row></form>
+          <Col md={6}>
+          <div className="d-flex justify-content-around mt-2">
+              <span style={{fontSize: 14}}>
+              בין 1 ל-10
+              </span>
+              {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+              <input style={{width: 88}} type={"text"}></input>
+         </div>
+          </Col>
+          <Col md={6} >
+          <div className="d-flex justify-content-around mt-2">
+              <span style={{fontSize: 14}}>
+              בין 11 ל-20
+              </span>
+              {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+              <input style={{width: 88}} type={"text"}></input>
+         </div>
+          </Col>
+        </Row>
+        <div className='text-center mt-4'>
+        <button className='bg-orange text-center'>שרטט</button>
+        </div>
+      </form>
     </div>
   );
 };

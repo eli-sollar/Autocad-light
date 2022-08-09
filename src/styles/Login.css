@@ -12,7 +12,7 @@
   width: 200px;
   height: 50px;
   background: transparent;
-  color: #333366;
+  color: #fff;
   font-size: "2px";
   border: 2px solid #333366;
   border-radius: 6px;
@@ -20,11 +20,11 @@
   font-weight: 800;
   font-family: 'Rubik';
   transition: all ease 0.2s;
-}
-.btn-signin:hover {
   background: #333366;
-  color: white;
 }
+/* .btn-signin:hover {
+  color: white;
+} */
 @media (max-width: 500px) {
   .btn-signin {
     text-align: center;
@@ -37,10 +37,13 @@
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
 }
 /*                                 Login Card */
+
+.login{
+  height: 80vh;
+}
 .loginCard {
   margin-left: auto;
   margin-right: auto;
-  min-height: 80vh;
   width: 520px;
 }
 .login-title {

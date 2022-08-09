@@ -15,10 +15,10 @@ export default function Autocad(props) {
     
     <div id="Autocad-wrapper" className={`fake-class small-typography create-step-map ${props.show ? '' : 'hideme'}`}>
       <a id="downloader" className="hide" ></a>
-      <div className="panel b-bot " id="panel-b-bot" >
-        {/* <span className="logo " id="logo" >Solar pro <sup> 2D</sup></span> */}
+      {/* <div className="panel b-bot " id="panel-b-bot" >
+        <span className="logo " id="logo" >Solar pro <sup> 2D</sup></span>
         <div id="top-toolbar"></div>
-      </div>
+      </div> */}
       <div id="dock-parent " >
 
         <div id="dock" className="panel b-right scroll hide" ></div>
@@ -32,12 +32,12 @@ export default function Autocad(props) {
 
       </div>
 
-      <div id="status" className="panel b-top" >
+      {/* <div id="status" className="panel b-top" >
         <div className="button-group">
         </div>
         <div    className="status-item coordinates-info">0.000:0.000</div>
         <div className="status-item tool-info"></div>
-      </div>
+      </div> */}
 
       <div id="global-windows">
       </div>

@@ -24,6 +24,7 @@ const Create = () => {
 
   const [activeId, setActive] = useState(stepId);
   const [modalShow, setModalShow] = useState(false);
+  const [counter, setCounter] = useState(0);
   const [showSkecher, setShowSkecher] = useState(false);
   const [isShow, setIsShow] = useState(true)
   const [isHalfScreen, setIsHalfScreen] = useState(showSkecher)
@@ -64,10 +65,23 @@ const Create = () => {
   }, []);
 
   const handleSubmit = async (event, data, noNavigation) => {
+    event.preventDefault()
+    setCounter(prevState => prevState + 1)
     setIsHalfScreen(showSkecher);
     let _projectId = projectId > 0 ? projectId : 0;
     let _active = noNavigation ? Number(activeId) : Number(activeId) + 1;
-    setActive(_active);
+    setActive(_active)
+    // if(activeId ==  3){
+    // console.log("I am i active 3")
+    // // setCounter(prev => prev + 1)
+    // setActive(3);
+    // if(counter != 4){
+    //   console.log("I am in here counter 4")
+    //   _active = 3
+    // }
+    // }else{
+    // }
+    // setActive(_active);
     if (data) {
 
       setContextData(data);
@@ -84,23 +98,22 @@ const Create = () => {
       }
 
     }
-
+    console.log(_active, "This is the active")
     navigate(`/Create/${_active}/${_projectId}#${_projectId}`, { state: { isPrev: false } })
   }
 
   const handlePrevButton = (event) => {
 
-    navigate(`/Create/${activeId - 1}/${projectId}#${projectId}`, { state: { isPrev: true } })
+    navigate(`/Create/${_active - 1}/${projectId}#${projectId}`, { state: { isPrev: true } })
     setActive(activeId - 1)
   };
-  const Component = loadComponent(activeId);
+
+  const Component = loadComponent(activeId)
   function loadComponent(name) {
-
-
-    const Component = React.lazy(() =>
-      import(`../components/steps/Step${name}.js`).catch(() =>
+  const Component = React.lazy(() =>
+        import(`../components/steps/Step${name}.js`).catch(() =>
         (import(`../components/steps/step${name}/Step${name}.js`)))
-    );
+  );
 
 
 
@@ -122,12 +135,15 @@ const Create = () => {
     stepsContext.setstepsData(stepsHierarchy);
   }
 
+  const handleStep3 = () => {
+    setCounter(prevState => prevState + 1)
+  }
 
 
 
   return (
     <div>
-      <Header btn={"LOG OUT"} steps={true} activeStep={activeId} />
+      <Header  steps={true} activeStep={activeId} />
       <Container className="max-width">
         {
           <div style={{
@@ -135,17 +151,14 @@ const Create = () => {
             display: "flex",
             justifyContent: 'space-between',
           }}>
-            <div className={`${isShow ? showSkecher ? "container-steps-form" : '' : ""}`}>
+            <div className="bg-white" >
               <Suspense fallback={<div>Loading...</div>}>
                 {isLoaded && (
                   <>
-                    <div className="df" onClick={() => setIsShow(!isShow)}>
-                      <img alt="" src={BurgerIcon} style={{ width: 20, height: 20 }} />
-                    </div>
                     {isShow && (
                       <>
-                        <Component displayAutocad={handleAutocad} OnSubmit={handleSubmit} OnPrev={handlePrevButton} />
-                        <div className="my-5">
+                        <Component counter={counter} displayAutocad={handleAutocad} OnSubmit={handleSubmit} OnPrev={handlePrevButton} />
+                        <div className="my-5" style={{width: 400}}>
                         {activeId === 9 ? (
                             <button
                               className="btn-next pl-auto mt-20"
@@ -153,18 +166,49 @@ const Create = () => {
                             >
                               שמור
                             </button>
-                          ) : (
+                          ) : (activeId == 3 && counter !== 4 ) ? (
+                            <div className="d-flex justify-content-around">
                             <button
-                              type="submit"
-                              className="btn-next pl-auto mt-20"
+                              type="button"
+                              className="bg-orange btn-next btn-secondary"
+                              onClick={handleStep3}
                               form={`step${activeId}`}
                               id="btn-next-stepper"
                             >
                               הבא
                             </button>
-                          )}
+                            <button
+                              type="submit"
+                              className=" btn-next btn btn-outline-secondary"
+                              form={`step${activeId}`}
+                              id="btn-next-stepper"
+                            >
+                            הקודם
+                            </button>
+                            </div>
+                            
+                          ) :(
+                            <div className="d-flex justify-content-around">
+                            <button
+                              type="submit"
+                              className="bg-orange btn-next btn-secondary"
+                              form={`step${activeId}`}
+                              id="btn-next-stepper"
+                            >
+                              הבא
+                            </button>
+                            <button
+                              type="submit"
+                              className=" btn-next btn btn-outline-secondary"
+                              form={`step${activeId}`}
+                              id="btn-next-stepper"
+                            >
+                            הקודם
+                            </button>
+                            </div>
+                          ) }
                             &nbsp;&nbsp;&nbsp;
-                          {
+                          {/* {
                             activeId !== 1 && (
                             <button
                               className="back-btn"
@@ -173,7 +217,7 @@ const Create = () => {
                               הקודם
                             </button>
                           )
-                          }
+                          } */}
                         
                         
                         </div>

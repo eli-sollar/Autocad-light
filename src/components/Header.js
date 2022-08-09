@@ -49,9 +49,9 @@ const Header = ({ btn, steps, activeStep, projectId1 }) => {
   let route;
 
  
-  if (btn === "SIGN UP") {
+  if (btn === "הירשם") {
     route = "/signup";
-  } else if (btn === "LOG IN") {
+  } else if (btn === "התחבר") {
     route = "/";
   } else if (btn === "LOG OUT") {
     route = "/";
@@ -67,7 +67,7 @@ const Header = ({ btn, steps, activeStep, projectId1 }) => {
 
 
       <Container>
-        <Navbar.Brand href="/" className="py-2">
+        <Navbar.Brand href="/" >
           <img src={logo} alt="logo" className="logo" />
         </Navbar.Brand>
 
@@ -93,9 +93,14 @@ const Header = ({ btn, steps, activeStep, projectId1 }) => {
             </Stepper>
           )}
         </Navbar.Collapse>
-        <Link to={route}>
+      {
+        btn && (
+<Link to={route}>
           <button className="btn-signin px-5">{btn}</button>
         </Link>
+        )
+
+      }  
       </Container>
     </Navbar>
   );

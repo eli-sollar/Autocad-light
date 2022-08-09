@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import ImageWrapper from "../../utility/ImageWrapper";
-import {Col, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import * as constants from './constants';
 import "../../App.css";
@@ -18,11 +18,13 @@ const Step2 = (props) => {
   const [direction, setDirection] = useState();
   const [plannerId, setPlannerId] = useState();
   const [roofTypeId, setRoofTypeId] = useState();
+  const [counter, setCounter] = useState([]);
   const [roofAngle, setRoofAngle] = useState(0);
- const [zeroPointAbsolute,setZeroPointAbsolute]=useState({ x: 0, y: 0, direction: 'up', maxYRange: 0 });
+  const [zeroPointAbsolute, setZeroPointAbsolute] = useState({ x: 0, y: 0, direction: 'up', maxYRange: 0 });
 
   const stepContext = useContext(StepsContext);
-  
+
+
   useEffect(() => {
     props.displayAutocad(true);
     loadStepData();
@@ -31,7 +33,7 @@ const Step2 = (props) => {
       removeCustomEvents(AutocadPickedEvent);
     };
   }, [absoluteZeroPointText]);
-    function loadStepData() {
+  function loadStepData() {
     let data = stepContext.stepsData["all"];
     setDirection(data.roofDirections);
     setRoofAngle(data.roofAngle);
@@ -51,25 +53,37 @@ const Step2 = (props) => {
     event.preventDefault();
   };
 
- 
-  
+
   const AutocadPickedEvent = ({ detail }) => {
-    
+
   };
 
+  useEffect(()=>{
+  setCounter(counter)
+  }, [counter])
 
-  const handleSubmit =  (event) => {
+  const myCounter = () => {
+     let tem = counter; 
+     let x = counter.length ; 
+     x ++ ;
+     x.toString()
+     setCounter(oldArray => [...oldArray, x]);
+
+ }
+
+
+  const handleSubmit = (event) => {
     let parameters = {
       ProjectId: projectId,
       stepIndex: stepId,
       isDraft: true,
-      UserId: plannerId ,
-      zeroPointAbsolute:zeroPointAbsolute ,
+      UserId: plannerId,
+      zeroPointAbsolute: zeroPointAbsolute,
       roofAngle: roofAngle,
       roofDirections: direction
     };
 
-   
+
     props.OnSubmit(event, parameters);
 
   };
@@ -77,47 +91,57 @@ const Step2 = (props) => {
 
   return (<>
     <div className={show ? " hide" : ""}>
-      <Row className="my-5">
+      <Row>
         <form onSubmit={handleSubmit} id="step2">
-          <h2 className="py-5">שרטט את הגג</h2>
+          <h2 className="text-center">שרטוט הגג</h2>
+          <div className="counter d-flex justify-content-end">
+            <button type="button" disabled={counter.length >= 4} className="p-1 px-3" onClick={myCounter}>
+              +
+            </button>
+            {counter.map(el => <span className="bg-orange p-2  border border-dark px-3">{el}</span>)}
+          </div>
 
-         {roofTypeId != constants.ROOF_TYPE.FLAT && (  <Row>
 
-            <Col>
-<>
-                <TextField
-                  id="roof-angle"
-                  label="זויית הגג"
-                  value={roofAngle}
-                  onChange={(e) => setRoofAngle(e.target.value)}
-                  autoComplete='off'
-                  color="primary"
-                />
-              
-              <FormControl>
-                <FormLabel id="roof-angle">זווית הגג ביחס לקרקע</FormLabel>
-                <RadioGroup
-                  row
-                  aria-labelledby="roof-angle"
-                  name="roof-angle"
-                  value={direction  || ''}
-                  onChange={(e) => setDirection(e.currentTarget.value)}>
-                  <FormControlLabel value="north" key="north" label="זוית לכיוון צפון" control={<Radio icon={<ImageWrapper pWidth={"100"} pHeight={"100"} src={"angle-to-north.jpg"} />} checkedIcon={<ImageWrapper pWidth={"120"} pHeight={"120"} class="img-selected" src={"images\angle-to-north.jpg"} />} />} />
-                <FormControlLabel value="south" key="south" label="זוית לכיוון דרום" control={<Radio icon={<ImageWrapper pWidth={"100"} pHeight={"100"} src={"angle-to-south.jpg"} />} checkedIcon={<ImageWrapper pWidth={"120"} pHeight={"120"} class="img-selected" src={"images\angle-to-south.jpg"} />} />} />
-                </RadioGroup>
+          {roofTypeId != constants.ROOF_TYPE.FLAT && (<Row>
 
-              </FormControl></>
-               </Col>
-            
-          </Row> ) }
-        
-          <span>--------------------</span>
-          <div>אחרי סיום שרטוט הגג, לחץ על האייקון האדום ובחר את הנקודה שתייצג את ראשית הצירים</div>
-            <div>כשתסיים לחץ שוב על האייקון.</div>
-            <div>
-              ({Math.ceil(zeroPointAbsolute?.x)},{Math.ceil(zeroPointAbsolute?.y)})
-            </div>
-            <button onClick={absoluteZeroPointHandler}>{absoluteZeroPointText}</button>
+         {counter.length < 3 &&   <Col>
+              <>
+                <div className="d-flex justify-content-center mt-3">
+                  <span className="ms-3">
+                    זווית הגג ביחס לקרקע
+                  </span>
+                  <input type={"text"}></input>
+                </div>
+
+                <FormControl>
+                  <RadioGroup
+                    row
+                    aria-labelledby="roof-angle"
+                    name="roof-angle"
+                    className="step2-images mt-4"
+                    value={direction || ''}
+                    onChange={(e) => setDirection(e.currentTarget.value)}>
+                    <FormControlLabel value="north" key="north" control={<Radio icon={<ImageWrapper pWidth={"100"} pHeight={"100"} src={"angle-to-north.jpg"} />} checkedIcon={<ImageWrapper pWidth={"120"} pHeight={"120"} class="img-selected" src={"images\angle-to-north.jpg"} />} />} />
+                    <FormControlLabel value="south" key="south" control={<Radio icon={<ImageWrapper pWidth={"100"} pHeight={"100"} src={"angle-to-south.jpg"} />} checkedIcon={<ImageWrapper pWidth={"120"} pHeight={"120"} class="img-selected" src={"images\angle-to-south.jpg"} />} />} />
+                  </RadioGroup>
+
+                </FormControl></>
+            </Col> } 
+
+          </Row>)}
+
+
+          <p className="text-center p-3">אחרי סיום שרטוט הגג לחץ על הכפתור בחר
+            וסמן את ראשית הצירים של הגג
+            בדרך כלל הנקודה השמאלית התחתונה.
+            ובסיום לחץ על כתפור אישור.</p>
+
+          <div className="d-flex justify-content-around">
+           <span>צור גג חדש</span>
+          {/* ({Math.ceil(zeroPointAbsolute?.x)},{Math.ceil(zeroPointAbsolute?.y)}) */}
+          <button className="bg-dark text-white" onClick={absoluteZeroPointHandler}>{absoluteZeroPointText}</button>
+          </div>
+
         </form>
       </Row>
     </div>

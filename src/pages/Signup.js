@@ -6,53 +6,35 @@ import "../styles/Login.css";
 const Signup = () => {
   return (
     <div>
-      <Header btn={"LOG IN"} />
-      <Container className="d-flex justify-content-center align-items-center">
-        <div className=" loginCard mt-5 pt-5">
-          <h1 className="login-title mb-4 mt-2">CREATE AN ACCOUNT</h1>
-          <h3 className="login-sub">
-            ALREADY HAVE AN ACCOUNT?{" "}
-            <Link
-              to="/"
-              style={{ textDecoration: "none", color: "#ff8603" }}
-              className="create-account"
-            >
-              SIGN IN
-            </Link>
-          </h3>
-          <hr className="my-5" />
+      <Header btn={"התחבר"} />
+      <Container className="d-flex flex-column login justify-content-center align-items-center">
+        <div className=" loginCard">
+          <h1 className="text-center">צור משתמש</h1>
           <Form>
             <Form.Group className="mb-4">
+              <label>שם </label>
               <Form.Control
                 type="email"
-                placeholder="E-mail"
-                className="px-3 py-2"
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-4">
-              <Form.Control
-                type="password"
-                placeholder="Password"
                 className="px-3 py-2"
               />
             </Form.Group>
             <Form.Group className="mb-4">
+              <label>מייל </label>
               <Form.Control
                 type="password"
-                placeholder="Repeat Password"
+                className="px-3 py-2"
+              />
+            </Form.Group>
+            <Form.Group className="mb-4">
+              <label>סיסמא</label>
+              <Form.Control
+                type="password"
                 className="px-3 py-2"
               />
             </Form.Group>
             <button className="login-btn" type="submit">
-              CREATE
+            צור   
             </button>
-            <h3 className="privacy-text py-4">
-              By clicking the "Sign in" to accept the terms of the{" "}
-              <a href="/" style={{ textDecoration: "none", color: "#ff8603" }}>
-                Privacy and Policy
-              </a>
-            </h3>
           </Form>
         </div>
       </Container>
