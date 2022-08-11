@@ -22,6 +22,11 @@ body {
   padding: 8px 0 0 10px;
   cursor: alias;
 }
+.step4-btn{
+  width: 124px;
+  height: 33px;
+  border-radius: 8px ;
+}
 .logo sup {
   font-size: 9px;
   font-style: italic;

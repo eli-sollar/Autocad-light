@@ -306,7 +306,7 @@ const Step4 = (props) => {
           </Col>
         </Row>
         <div className='text-center mt-4'>
-        <button className='bg-orange text-center'>שרטט</button>
+        <button className='bg-orange text-center step4-btn'>שרטט</button>
         </div>
       </form>
     </div>

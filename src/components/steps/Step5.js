@@ -167,7 +167,7 @@ const Step5 = (props) => {
                   <Row className="mt-3">
                     <span> <strong>העתק</strong></span>
                     <Col md={9} className="d-flex flex-column">
-                      <div className="d-flex justify-content-around mt-2">
+                      <div className="d-flex justify-content-between mt-2">
                         <span >
                         מרחק
                         </span>
@@ -175,7 +175,7 @@ const Step5 = (props) => {
                         <input style={{width:100}} type={"text"}></input>
                         
                       </div>
-                      <div className="d-flex justify-content-around mt-2">
+                      <div className="d-flex justify-content-between mt-2">
                         <span >
                         כמות
                         </span>
@@ -192,7 +192,7 @@ const Step5 = (props) => {
                   <Row className="mt-3">
                     <strong>הזז</strong>
                     <Col md={9}>
-                      <div className="d-flex justify-content-around mt-2">
+                      <div className="d-flex justify-content-between mt-2">
                         <span >
                         כמות
                         </span>
@@ -229,21 +229,21 @@ const Step5 = (props) => {
                   </Row>
                 </Container>
                 <Container className="mt-5">
-                  <div className="d-flex justify-content-around mt-2">
+                  <div className="d-flex justify-content-between mt-2">
                     <span>
                       זווית משולש
                     </span>
                     {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
                     <input type={"text"}></input>
                   </div>
-                  <div className="d-flex justify-content-around mt-2">
+                  <div className="d-flex justify-content-between mt-2">
                     <span>
                       גובה רגל קידמית
                     </span>
                     {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
                     <input type={"text"}></input>
                   </div>
-                  <div className="d-flex justify-content-around mt-2">
+                  <div className="d-flex justify-content-between mt-2">
                     <span>
                       עמוד הגבהה
                     </span>
@@ -253,14 +253,14 @@ const Step5 = (props) => {
                 </Container>
                 <hr className="my-4"></hr>
                 <Container>
-                  <div className="d-flex justify-content-around mt-2">
+                  <div className="d-flex justify-content-between mt-2">
                     <span>
                       מרחק X מנקודת 0
                     </span>
                     {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
                     <input type={"text"}></input>
                   </div>
-                  <div className="d-flex justify-content-around mt-2">
+                  <div className="d-flex justify-content-between mt-2">
                     <span>
                       מרחק Y מנקודת 0
                     </span>

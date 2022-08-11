@@ -151,7 +151,7 @@ const Create = () => {
             display: "flex",
             justifyContent: 'space-between',
           }}>
-            <div className="bg-white" >
+            <div className="bg-white w-50" >
               <Suspense fallback={<div>Loading...</div>}>
                 {isLoaded && (
                   <>
@@ -230,7 +230,7 @@ const Create = () => {
  {/* <div className={isHalfScreen ? "wrapper-Autocad-half" : "wrapper-Autocad"}><Autocad show={showSkecher} ></Autocad></div>} */}
              
             {
-              <div className="wrapper-Autocad"><Autocad show={showSkecher} ></Autocad></div>}
+              <div className="wrapper-Autocad"><Autocad step={activeId} show={showSkecher} ></Autocad></div>}
           </div>
         }
         <MyVerticallyCenteredModal

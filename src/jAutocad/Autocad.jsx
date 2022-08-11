@@ -25,7 +25,7 @@ export default function Autocad(props) {
 
         <div id="viewer-container" >
           <div className="tool-hint" ></div>
-          <canvas width="1625" height="793" id="viewer"></canvas>
+          <canvas width={props.step == 6 ?  "50%" : '1625' } height="793" id="viewer"></canvas>
           <div id="react-controls" ></div>
         </div>
         <div id="right-toolbar" className="panel b-left scroll hide" ></div>
