@@ -12,6 +12,7 @@ import { reducer, initialState } from './store/index';
 import * as constants from '../constants';
 import * as actions from './store/actions';
 import AddCustomer from './AddCustomer';
+import { Container } from "react-bootstrap";
 const Step1 = (props) => {
 
   const [store, dispatch] = useReducer(reducer, initialState);
@@ -157,8 +158,8 @@ const Step1 = (props) => {
 </div>
       {/* <AddCustomer OnSubmit={addCustomersHandler}></AddCustomer> */}
       <br />
-      {store.roofTypeId != constants.ROOF_TYPE.FLAT && <>
-        <span>    בחר כיוון</span>
+      {store.roofTypeId != constants.ROOF_TYPE.FLAT && <Container className="pe-4">
+        <span>בחר כיוון</span>
         <RadioGroup
           defaultValue="2"
           name="fetot-direction"
@@ -169,7 +170,7 @@ const Step1 = (props) => {
           {store.roofTypeId != constants.ROOF_TYPE.KAL_ZIP && <> <FormControlLabel value="1" control={<Radio />} label="פטות מאונכות לצפון" /></>}
           <FormControlLabel value="2" control={<Radio />} label="פטות מקבילות לצפון" />
 
-        </RadioGroup></>}
+        </RadioGroup></Container>}
 
     </form>
   );

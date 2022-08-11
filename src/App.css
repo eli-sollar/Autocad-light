@@ -88,10 +88,17 @@ justify-content: space-around;
  height: 100px;
  width: 150px;
 }
+.step2-images .img-selected{
+box-shadow: none;
+border: 1px solid #ff8603 ;
+}
 .select-box-2 span{
   text-align: center;
   background-color: #FF9B05;
   width: 100px;
+}
+.step4-form{
+  margin-right:  0 !important;
 }
 h1 {
   font-size: 34px;

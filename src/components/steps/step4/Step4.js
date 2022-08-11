@@ -110,13 +110,13 @@ const Step4 = (props) => {
         <div className="d-flex justify-content-around mt-2">
               <span >
               מספר הפטות 
-              </span>
+              </span> 
               {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
               <input  value={20} type={"text"}></input>
          </div>
-        <Row className='mt-3'>
+        <Row className='mt-3 step4-form' style={{width: 400, padding: 10}}>
           <Col md={6}>
-          <div className="d-flex justify-content-around mt-2">
+          <div className="d-flex justify-content-between mt-2">
               <span style={{fontSize: 14}}>
               בין 0 ל-1
               </span>
@@ -125,7 +125,7 @@ const Step4 = (props) => {
          </div>
           </Col>
           <Col md={6} >
-          <div className="d-flex justify-content-around mt-2">
+          <div className="d-flex justify-content-between mt-2">
               <span style={{fontSize: 14}}>
               בין 10 ל-11
               </span>
@@ -135,7 +135,7 @@ const Step4 = (props) => {
           </Col>
 
           <Col md={6}>
-          <div className="d-flex justify-content-around mt-2">
+          <div className="d-flex justify-content-between mt-2">
               <span style={{fontSize: 14}}>
               בין 1 ל-2
               </span>
@@ -144,7 +144,7 @@ const Step4 = (props) => {
          </div>
           </Col>
           <Col md={6} >
-          <div className="d-flex justify-content-around mt-2">
+          <div className="d-flex justify-content-between mt-2">
               <span style={{fontSize: 14}}>
               בין 11 ל-12
               </span>
@@ -154,7 +154,7 @@ const Step4 = (props) => {
           </Col>
 
           <Col md={6}>
-          <div className="d-flex justify-content-around mt-2">
+          <div className="d-flex justify-content-between mt-2">
               <span style={{fontSize: 14}}>
               בין 1 ל-3
               </span>
@@ -163,7 +163,7 @@ const Step4 = (props) => {
          </div>
           </Col>
           <Col md={6} >
-          <div className="d-flex justify-content-around mt-2">
+          <div className="d-flex justify-content-between mt-2">
               <span style={{fontSize: 14}}>
               בין 11 ל-13
               </span>
@@ -173,7 +173,7 @@ const Step4 = (props) => {
           </Col>
            
           <Col md={6}>
-          <div className="d-flex justify-content-around mt-2">
+          <div className="d-flex justify-content-between mt-2">
               <span style={{fontSize: 14}}>
               בין 1 ל-4
               </span>
@@ -182,7 +182,7 @@ const Step4 = (props) => {
          </div>
           </Col>
           <Col md={6} >
-          <div className="d-flex justify-content-around mt-2">
+          <div className="d-flex justify-content-between mt-2">
               <span style={{fontSize: 14}}>
               בין 11 ל-14
               </span>
@@ -192,7 +192,7 @@ const Step4 = (props) => {
           </Col>
 
           <Col md={6}>
-          <div className="d-flex justify-content-around mt-2">
+          <div className="d-flex justify-content-between mt-2">
               <span style={{fontSize: 14}}>
               בין 1 ל-5
               </span>
@@ -201,7 +201,7 @@ const Step4 = (props) => {
          </div>
           </Col>
           <Col md={6} >
-          <div className="d-flex justify-content-around mt-2">
+          <div className="d-flex justify-content-between mt-2">
               <span style={{fontSize: 14}}>
               בין 11 ל-15
               </span>
@@ -211,7 +211,7 @@ const Step4 = (props) => {
           </Col>
 
           <Col md={6}>
-          <div className="d-flex justify-content-around mt-2">
+          <div className="d-flex justify-content-between mt-2">
               <span style={{fontSize: 14}}>
               בין 1 ל-6
               </span>
@@ -220,7 +220,7 @@ const Step4 = (props) => {
          </div>
           </Col>
           <Col md={6} >
-          <div className="d-flex justify-content-around mt-2">
+          <div className="d-flex justify-content-between mt-2">
               <span style={{fontSize: 14}}>
               בין 11 ל-16
               </span>
@@ -230,7 +230,7 @@ const Step4 = (props) => {
           </Col>
 
           <Col md={6}>
-          <div className="d-flex justify-content-around mt-2">
+          <div className="d-flex justify-content-between mt-2">
               <span style={{fontSize: 14}}>
               בין 1 ל-7
               </span>
@@ -239,7 +239,7 @@ const Step4 = (props) => {
          </div>
           </Col>
           <Col md={6} >
-          <div className="d-flex justify-content-around mt-2">
+          <div className="d-flex justify-content-between mt-2">
               <span style={{fontSize: 14}}>
               בין 11 ל-17
               </span>
@@ -249,7 +249,7 @@ const Step4 = (props) => {
           </Col>
 
           <Col md={6}>
-          <div className="d-flex justify-content-around mt-2">
+          <div className="d-flex justify-content-between mt-2">
               <span style={{fontSize: 14}}>
               בין 1 ל-8
               </span>
@@ -258,7 +258,7 @@ const Step4 = (props) => {
          </div>
           </Col>
           <Col md={6} >
-          <div className="d-flex justify-content-around mt-2">
+          <div className="d-flex justify-content-between mt-2">
               <span style={{fontSize: 14}}>
               בין 11 ל-18
               </span>
@@ -268,7 +268,7 @@ const Step4 = (props) => {
           </Col>
 
           <Col md={6}>
-          <div className="d-flex justify-content-around mt-2">
+          <div className="d-flex justify-content-between mt-2">
               <span style={{fontSize: 14}}>
               בין 1 ל-9
               </span>
@@ -277,7 +277,7 @@ const Step4 = (props) => {
          </div>
           </Col>
           <Col md={6} >
-          <div className="d-flex justify-content-around mt-2">
+          <div className="d-flex justify-content-between mt-2">
               <span style={{fontSize: 14}}>
               בין 11 ל-19
               </span>
@@ -287,7 +287,7 @@ const Step4 = (props) => {
           </Col>
 
           <Col md={6}>
-          <div className="d-flex justify-content-around mt-2">
+          <div className="d-flex justify-content-between mt-2">
               <span style={{fontSize: 14}}>
               בין 1 ל-10
               </span>
@@ -296,7 +296,7 @@ const Step4 = (props) => {
          </div>
           </Col>
           <Col md={6} >
-          <div className="d-flex justify-content-around mt-2">
+          <div className="d-flex justify-content-between mt-2">
               <span style={{fontSize: 14}}>
               בין 11 ל-20
               </span>

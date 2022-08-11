@@ -78,33 +78,35 @@ const Step3 = (props) => {
           <Col>
             <h5 className="text-center" >מידות פנלים</h5>
             <form>
-              <div className="d-flex justify-content-around mt-2">
+              <div style={{width: 350, padding:10}}>
+              <div className="d-flex justify-content-between mt-2">
                 <span>
                   אורך (מ”מ)
                 </span>
                 {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
                 <input type={"text"}></input>
               </div>
-              <div className="d-flex justify-content-around mt-2">
+              <div className="d-flex justify-content-between mt-2">
                 <span>
                   רוחב (מ”מ)
                 </span>
                 {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
                 <input type={"text"}></input>
               </div>
-              <div className="d-flex justify-content-around mt-2">
+              <div className="d-flex justify-content-between mt-2">
                 <span>
                   עובי (מ”מ)
                 </span>
                 {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
                 <input type={"text"}></input>
               </div>
-              <div className="d-flex justify-content-around mt-2">
+              <div className="d-flex justify-content-between mt-2">
                 <span>
                   הספק (וואט)
                 </span>
                 {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
                 <input type={"text"}></input>
+              </div>
               </div>
               <div className="text-center">
                 <hr></hr>

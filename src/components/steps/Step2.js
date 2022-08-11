@@ -8,6 +8,7 @@ import "../../App.css";
 import { addCustomEvents, removeCustomEvents } from './eventsManager';
 import StepsContext from "./StepsContext";
 import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField } from "@mui/material";
+import { Container } from "@mui/system";
 
 
 const Step2 = (props) => {
@@ -95,10 +96,10 @@ const Step2 = (props) => {
         <form onSubmit={handleSubmit} id="step2">
           <h2 className="text-center">שרטוט הגג</h2>
           <div className="counter d-flex justify-content-end">
-            <button type="button" disabled={counter.length >= 4} className="p-1 px-3" onClick={myCounter}>
+            <button type="button" disabled={counter.length >= 4} className="p-1 px-2" onClick={myCounter}>
               +
             </button>
-            {counter.map(el => <span className="bg-orange p-2  border border-dark px-3">{el}</span>)}
+            {counter.map(el => <span className="bg-orange p-1  border border-dark px-2">{el}</span>)}
           </div>
 
 
@@ -112,8 +113,12 @@ const Step2 = (props) => {
                   </span>
                   <input type={"text"}></input>
                 </div>
+                </>
+            </Col> } 
+          </Row>)}
 
-                <FormControl>
+          <Container>
+          <FormControl>
                   <RadioGroup
                     row
                     aria-labelledby="roof-angle"
@@ -124,13 +129,8 @@ const Step2 = (props) => {
                     <FormControlLabel value="north" key="north" control={<Radio icon={<ImageWrapper pWidth={"100"} pHeight={"100"} src={"angle-to-north.jpg"} />} checkedIcon={<ImageWrapper pWidth={"120"} pHeight={"120"} class="img-selected" src={"images\angle-to-north.jpg"} />} />} />
                     <FormControlLabel value="south" key="south" control={<Radio icon={<ImageWrapper pWidth={"100"} pHeight={"100"} src={"angle-to-south.jpg"} />} checkedIcon={<ImageWrapper pWidth={"120"} pHeight={"120"} class="img-selected" src={"images\angle-to-south.jpg"} />} />} />
                   </RadioGroup>
-
-                </FormControl></>
-            </Col> } 
-
-          </Row>)}
-
-
+                </FormControl>
+          </Container>
           <p className="text-center p-3">אחרי סיום שרטוט הגג לחץ על הכפתור בחר
             וסמן את ראשית הצירים של הגג
             בדרך כלל הנקודה השמאלית התחתונה.
