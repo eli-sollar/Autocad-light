@@ -129,8 +129,9 @@ const Planners = (props) => {
           </div>
           <div className=" d-flex justify-content-between mt-4">
             <label>שם מתכנן </label>
-            <div className="select-box">
+            <div className="select-box d-flex">
               <SelectCustom onChange={(data, type) => setPlannerId(data)} name="Planner" dataSource="Planners" lKey="Id" value="UserName" label="שם מתכנן"></SelectCustom>
+               <AddCustomer OnSubmit={addCustomersHandler}></AddCustomer>
             </div>
           </div>
           <div className=" d-flex  mt-4 ">

@@ -21,6 +21,15 @@ iframe{
 }
 .bg-orange {
   background-color: #FF9B05;
+  border: none;
+}
+.dropdown-toggle{
+width: 90%;
+padding: 7px 0px;
+border-radius: 8px;  
+}
+.dropdown-toggle::after {
+  display: none !important;
 }
 .btn-lg-2{
   height: 100px;

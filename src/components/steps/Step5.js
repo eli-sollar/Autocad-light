@@ -3,20 +3,26 @@ import { Checkbox, TextField } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import { Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@mui/material';
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import {
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+  FormControl,
+  FormLabel,
+} from "@mui/material";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import StepsContext from "./StepsContext";
-import * as constants from './constants';
-import { addCustomEvents, removeCustomEvents } from './eventsManager';
+import * as constants from "./constants";
+import { addCustomEvents, removeCustomEvents } from "./eventsManager";
 import { useLocation, useParams } from "react-router-dom";
 import { Direction } from "../../ui-components/direction";
 //import AutocadManager from "./AutocadManager";
 const Step5 = (props) => {
-  const [directions, setVDirections] = useState('right');
+  const [directions, setVDirections] = useState("right");
   const [enableButton, setEnableButton] = useState(true);
   const [fetaData, setFetaData] = useState({});
   const [fetaCount, setFetaCount] = useState(1);
@@ -40,13 +46,14 @@ const Step5 = (props) => {
   }, []);
 
   function loadStepData() {
-
-
     let data = stepContext.stepsData["all"];
     if (data) {
       let roofTypeId = data.roofTypeId;
 
-      if (roofTypeId == constants.ROOF_TYPE.FLAT || roofTypeId == constants.ROOF_TYPE.KAL_ZIP) {
+      if (
+        roofTypeId == constants.ROOF_TYPE.FLAT ||
+        roofTypeId == constants.ROOF_TYPE.KAL_ZIP
+      ) {
         let event = null;
         let params = null;
 
@@ -63,15 +70,13 @@ const Step5 = (props) => {
     }
   }
 
-
   const drawHandle = (event) => {
-
     let sum = 0;
     for (const key in fetaData) {
-
       const element = fetaData[key];
-      sum += Number(element)
-      let dx = 0, dy = 0;
+      sum += Number(element);
+      let dx = 0,
+        dy = 0;
 
       switch (directions) {
         case "right":
@@ -90,48 +95,52 @@ const Step5 = (props) => {
         default:
           break;
       }
-      let command = { "commandName": "copy", "type": "multi-command", "args": { "dx": dx, "dy": dy, "layer": "ROOF", segmentId: zeroPoint.id } };
-      let drawEvent = new CustomEvent('solarProDrawingEvent', { 'detail': command });
+      let command = {
+        commandName: "copy",
+        type: "multi-command",
+        args: { dx: dx, dy: dy, layer: "ROOF", segmentId: zeroPoint.id },
+      };
+      let drawEvent = new CustomEvent("solarProDrawingEvent", {
+        detail: command,
+      });
 
       document.dispatchEvent(drawEvent);
       event.preventDefault();
     }
-
-  }
+  };
 
   const fetaDataOnChange = (value, index) => {
     let feta = { ...fetaData };
     feta[index] = value;
     setFetaData(feta);
-  }
+  };
 
   const displayHelpHandler = () => {
-
     setDisplayHelp(!displayHelp);
-  }
+  };
 
   const AutocadPickedEvent = ({ detail }) => {
     setEnableButton(false);
     if (detail?.code == 1) {
-
       setZeroPoint({ ...zeroPoint, ...detail.point });
     }
     console.log(detail, "I'm listening on solar pro to Autocad");
-
   };
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     let params = {
       UserId: plannerId,
       fetaCount: fetaCount,
       fetaData: fetaData,
       ProjectId: projectId,
       //fetot: { direction: directions, x: Math.ceil(zeroPoint.x),y: Math.ceil(zeroPoint.y) }
-      fetot: { direction: directions, x: Math.ceil(zeroPoint.x), y: Math.ceil(zeroPoint.y) }
+      fetot: {
+        direction: directions,
+        x: Math.ceil(zeroPoint.x),
+        y: Math.ceil(zeroPoint.y),
+      },
     };
 
     props.OnSubmit(event, params);
-
-
   };
   return (
     <div>
@@ -141,47 +150,95 @@ const Step5 = (props) => {
           <div class="card-header bg-white">
             <ul class="nav nav-tabs card-header-tabs border-none" id="myTab">
               <li class="nav-item border-none">
-                <a href="#home" class="nav-link active" data-bs-toggle="tab">עריכת שורות</a>
+                <a href="#home" class="nav-link active" data-bs-toggle="tab">
+                  עריכת שורות
+                </a>
               </li>
               <li class="nav-item">
-                <a href="#profile" class="nav-link" data-bs-toggle="tab">יצירת שורות</a>
+                <a href="#profile" class="nav-link" data-bs-toggle="tab">
+                  יצירת שורות
+                </a>
               </li>
             </ul>
           </div>
           <div class="card-body">
             <div class="tab-content">
               <div class="tab-pane fade show active" id="home">
-                <Row className="d-flex gy-3 " >
-                  {["A", "B", "C", "E", "F"].map(el => <Col md={4} ><div class="dropdown">
-                    <button class="bg-orange dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <span className="border border-dark px-1 mx-4"> x </span> <strong> {el}</strong>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">{el} 1 <span className="ms-5 bg-danger px-2 text-white"> x</span></a>
-                      <a class="dropdown-item" href="#">{el} 2 <span className="ms-5 bg-danger px-2 text-white"> x</span></a>
-                      <a class="dropdown-item" href="#">{el} 3 <span className="ms-5 bg-danger px-2 text-white"> x</span></a>
-                    </div>
-                  </div> </Col>)}
+                <Row className="d-flex gy-3 ">
+                  {["A", "B", "C", "D", "E", "F"].map((el) => (
+                    <Col md={3} className="p-0 ">
+                      <div class="dropdown w-100">
+                        <button
+                          class="bg-orange dropdown-toggle px-3"
+                          type="button"
+                          id="dropdownMenuButton"
+                          data-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                        >
+                          <span style={{ marginLeft: 12 }}>
+                            <strong> {el}</strong>
+                          </span>
+                          <span className="ml-2">
+                            <i class="fa-solid fa-angle-down"></i>
+                          </span>{" "}
+                          <span
+                            className="bg-orange px-2 ml-1"
+                            style={{
+                              display: "inline-block",
+                              border: "1px solid black",
+                              borderRadius: "4px",
+                            }}
+                          >
+                            x
+                          </span>
+                        </button>
+                        <div
+                          class="dropdown-menu"
+                          aria-labelledby="dropdownMenuButton"
+                        >
+                          <a class="dropdown-item" href="#">
+                            {el} 1{" "}
+                            <span className="ms-5 bg-danger px-2 text-white">
+                              {" "}
+                              x
+                            </span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            {el} 2{" "}
+                            <span className="ms-5 bg-danger px-2 text-white">
+                              {" "}
+                              x
+                            </span>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            {el} 3{" "}
+                            <span className="ms-5 bg-danger px-2 text-white">
+                              {" "}
+                              x
+                            </span>
+                          </a>
+                        </div>
+                      </div>{" "}
+                    </Col>
+                  ))}
                 </Row>
                 <Container>
                   <Row className="mt-3">
-                    <span> <strong>העתק</strong></span>
+                    <span>
+                      {" "}
+                      <strong>העתק</strong>
+                    </span>
                     <Col md={9} className="d-flex flex-column">
                       <div className="d-flex justify-content-between mt-2">
-                        <span >
-                        מרחק
-                        </span>
+                        <span>מרחק</span>
                         {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
-                        <input style={{width:100}} type={"text"}></input>
-                        
+                        <input style={{ width: 100 }} type={"text"}></input>
                       </div>
                       <div className="d-flex justify-content-between mt-2">
-                        <span >
-                        כמות
-                        </span>
+                        <span>כמות</span>
                         {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
-                        <input style={{width:100}} type={"text"}></input>
-                        
+                        <input style={{ width: 100 }} type={"text"}></input>
                       </div>
                     </Col>
                     <Col md={3}>
@@ -193,11 +250,9 @@ const Step5 = (props) => {
                     <strong>הזז</strong>
                     <Col md={9}>
                       <div className="d-flex justify-content-between mt-2">
-                        <span >
-                        כמות
-                        </span>
+                        <span>כמות</span>
                         {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
-                        <input style={{width:100}} type={"text"}></input>
+                        <input style={{ width: 100 }} type={"text"}></input>
                       </div>
                     </Col>
                     <Col md={3}>
@@ -208,45 +263,39 @@ const Step5 = (props) => {
               </div>
               <div class="tab-pane fade" id="profile">
                 <div className="d-flex flex-column justify-content-center align-items-center">
-                  <label>
-                    סוג שורה
-                  </label>
-                  <select style={{ width: 200 }}>
+                  <label>סוג שורה</label>
+                  <select
+                    style={{ width: 200, padding: "5px", borderRadius: "5px" }}
+                  >
                     <option>1</option>
                     <option>2</option>
                   </select>
                 </div>
                 <Container className="mt-4">
-                  <Row >
+                  <Row>
                     <Col md={6}>
                       <label style={{ fontSize: 14 }}>מס’ פנלים בעמידה</label>
                       <input style={{ width: 88 }} type={"number"}></input>
                     </Col>
                     <Col md={6}>
-                      <label style={{ fontSize: 14 }} >מס’ פנלים בשכיבה</label>
+                      <label style={{ fontSize: 14 }}>מס’ פנלים בשכיבה</label>
                       <input style={{ width: 88 }} type={"number"}></input>
                     </Col>
                   </Row>
                 </Container>
                 <Container className="mt-5">
                   <div className="d-flex justify-content-between mt-2">
-                    <span>
-                      זווית משולש
-                    </span>
+                    <span>זווית משולש</span>
                     {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
                     <input type={"text"}></input>
                   </div>
                   <div className="d-flex justify-content-between mt-2">
-                    <span>
-                      גובה רגל קידמית
-                    </span>
+                    <span>גובה רגל קידמית</span>
                     {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
                     <input type={"text"}></input>
                   </div>
                   <div className="d-flex justify-content-between mt-2">
-                    <span>
-                      עמוד הגבהה
-                    </span>
+                    <span>עמוד הגבהה</span>
                     {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
                     <input type={"text"}></input>
                   </div>
@@ -254,25 +303,19 @@ const Step5 = (props) => {
                 <hr className="my-4"></hr>
                 <Container>
                   <div className="d-flex justify-content-between mt-2">
-                    <span>
-                      מרחק X מנקודת 0
-                    </span>
+                    <span>מרחק X מנקודת 0</span>
                     {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
                     <input type={"text"}></input>
                   </div>
                   <div className="d-flex justify-content-between mt-2">
-                    <span>
-                      מרחק Y מנקודת 0
-                    </span>
+                    <span>מרחק Y מנקודת 0</span>
                     {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
                     <input type={"text"}></input>
                   </div>
                 </Container>
                 <Container className="d-flex mt-3">
                   <p className="text-center">
-                    בחר את נקודת האפס
-                    שתי צלעות מצתלבות
-
+                    בחר את נקודת האפס שתי צלעות מצתלבות
                   </p>
                   <img src="/images/3.png"></img>
                 </Container>
@@ -283,7 +326,6 @@ const Step5 = (props) => {
         </div>
       </form>
     </div>
-
   );
 };
 

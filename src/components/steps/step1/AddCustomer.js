@@ -60,119 +60,71 @@ const AddCustomer = (props) => {
     setOpen(false);
   };
   return (<>
-    {/* <Button variant="outlined" onClick={handleClickOpen}>
+    <Button style={{color : "#FF9B05", border : "1px solid #FF9B05"}} variant="outlined" className="p-0 w-25 me-4" onClick={handleClickOpen}>
       הוספת לקוח
-    </Button> */}
+    </Button>
 
 
     <Dialog open={open} onClose={closeHandler}>
-      <DialogTitle>     הוספת לקוח למערכת
+      <DialogTitle className="text-center">  הוספת לקוח 
       </DialogTitle>
-      <DialogContent>
-
-        <TextField
-          autoFocus
-          margin="dense"
-          id="client-name"
-          label="שם לקוח"
-          type="text"
-          fullWidth
-          variant="standard"
-          value={clientName}
-          onChange={(e) => setClientName(e.currentTarget.value)}
-        />
-        <TextField
-          autoFocus
-          margin="dense"
-          id="address"
-          label="כתובת"
-          type="text"
-          fullWidth
-          variant="standard"
-          value={address}
-          onChange={(e) => setAddress(e.currentTarget.value)}
-        />
-        <TextField
-          autoFocus
-          margin="dense"
-          id="country"
-          label="מדינה"
-          type="text"
-          fullWidth
-          variant="standard"
-          value={country}
-          onChange={(e) => setCountry(e.currentTarget.value)}
-        />
-        <TextField
-          autoFocus
-          margin="dense"
-          id="contact-name-1"
-          label="שם איש קשר 1"
-          type="text"
-          fullWidth
-          variant="standard"
-          value={contactName1}
-          onChange={(e) => setContactName1(e.currentTarget.value)}
-        />
-        <TextField
-          autoFocus
-          margin="dense"
-          id="phone-number-1"
-          label="טלפון איש קשר 1"
-          type="text"
-          fullWidth
-          variant="standard"
-          value={phoneNumber1}
-          onChange={(e) => setPhoneNumber1(e.currentTarget.value)}
-        />
-        <TextField
-          autoFocus
-          margin="dense"
-          id="email-1"
-          label="מייל איש קשר 1"
-          type="email"
-          fullWidth
-          variant="standard"
-          value={email1}
-          onChange={(e) => setEmail1(e.currentTarget.value)}
-        />
-        <TextField
-          autoFocus
-          margin="dense"
-          id="contact-name-2"
-          label="שם איש קשר 2"
-          type="text"
-          fullWidth
-          variant="standard"
-          value={contactName2}
-          onChange={(e) => setContactName2(e.currentTarget.value)}
-        />
-        <TextField
-          autoFocus
-          margin="dense"
-          id="phone-number-2"
-          label="טלפון איש קשר 2"
-          type="text"
-          fullWidth
-          variant="standard"
-          value={phoneNumber2}
-          onChange={(e) => setPhoneNumber2(e.currentTarget.value)}
-        />
-        <TextField
-          autoFocus
-          margin="dense"
-          id="email-2"
-          label="מייל איש קשר 2"
-          type="email"
-          fullWidth
-          variant="standard"
-          value={email2}
-          onChange={(e) => setEmail2(e.currentTarget.value)}
-        />
+      <DialogContent style={{width: 500, height:500}}>
+      <div className="d-flex justify-content-between mt-4 ">
+          <span>
+          שם לקוח
+          </span>
+          {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+          <input style={{ width: 316}} type={"text"}></input>
+      </div>
+      <div className="d-flex justify-content-between mt-4 ">
+          <span>
+          כתובת
+          </span>
+          {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+          <input style={{ width: 316}} type={"text"}></input>
+      </div>
+      <div className="d-flex justify-content-between mt-4 ">
+          <span>
+          שם איש קשר 1
+          </span>
+          {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+          <input style={{ width: 316}} type={"text"}></input>
+      </div>
+      <div className="d-flex justify-content-between mt-4 ">
+          <span>
+          טלפון איש קשר 1          </span>
+          {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+          <input style={{ width: 316}} type={"text"}></input>
+      </div>
+      <div className="d-flex justify-content-between mt-4 ">
+          <span>
+          מייל איש קשר 1          </span>
+          {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+          <input style={{ width: 316}} type={"text"}></input>
+      </div>
+      <div className="d-flex justify-content-between mt-4 ">
+          <span>
+          שם איש  קשר 2          </span>
+          {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+          <input style={{ width: 316}} type={"text"}></input>
+      </div>
+      <div className="d-flex justify-content-between mt-4 ">
+          <span>
+          טלפון איש קשר 2          </span>
+          {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+          <input style={{ width: 316}} type={"text"}></input>
+      </div>
+      <div className="d-flex justify-content-between mt-4 ">
+          <span>
+          מייל איש קשר 2
+          </span>
+          {/* {store.dataLoaded && <SelectCustom onChange={(data, type) => actions.setCustomers(dispatch, data)} defaultData={store.customersDefault} name="Customers" dataSource="Customers" lKey="Id" className="st1ctrl1" value="Name" label="שם ספק"></SelectCustom>} */}
+          <input style={{ width: 316}} type={"text"}></input>
+      </div>
       </DialogContent>
       <DialogActions>
-        <Button onClick={closeHandler}>ביטול</Button>
-        <Button onClick={submitHandler}>אישור</Button>
+        <Button style={{backgroundColor: "#FF9B05", color :"white"}} onClick={closeHandler}>ביטול</Button>
+        <Button style={{backgroundColor: "#1A2E4F", color :"white"}} onClick={submitHandler}>אישור</Button>
       </DialogActions>
     </Dialog>
   </>);
